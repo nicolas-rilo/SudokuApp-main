@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sudokuappModelStoreContainer" CdmEntityContainer="sudokuapp">
+    <EntitySetMapping Name="Arrow">
+      <EntityTypeMapping TypeName="sudokuappModel.Arrow">
+        <MappingFragment StoreEntitySet="Arrow">
+          <ScalarProperty Name="arrowId" ColumnName="arrowId" />
+          <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+          <ScalarProperty Name="start_cell" ColumnName="start_cell" />
+          <ScalarProperty Name="end_cell" ColumnName="end_cell" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cell">
+      <EntityTypeMapping TypeName="sudokuappModel.Cell">
+        <MappingFragment StoreEntitySet="Cell">
+          <ScalarProperty Name="cellId" ColumnName="cellId" />
+          <ScalarProperty Name="row_index" ColumnName="row_index" />
+          <ScalarProperty Name="col_index" ColumnName="col_index" />
+          <ScalarProperty Name="cell_value" ColumnName="cell_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Killer_box">
+      <EntityTypeMapping TypeName="sudokuappModel.Killer_box">
+        <MappingFragment StoreEntitySet="Killer_box">
+          <ScalarProperty Name="killerId" ColumnName="killerId" />
+          <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+          <ScalarProperty Name="killer_value" ColumnName="killer_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participant">
+      <EntityTypeMapping TypeName="sudokuappModel.Participant">
+        <MappingFragment StoreEntitySet="Participant">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="tournamentId" ColumnName="tournamentId" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Review">
+      <EntityTypeMapping TypeName="sudokuappModel.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+          <ScalarProperty Name="usrId" ColumnName="usrId" />
+          <ScalarProperty Name="review_value" ColumnName="review_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sudoku">
+      <EntityTypeMapping TypeName="sudokuappModel.Sudoku">
+        <MappingFragment StoreEntitySet="Sudoku">
+          <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+          <ScalarProperty Name="usrId" ColumnName="usrId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="rules" ColumnName="rules" />
+          <ScalarProperty Name="dificulty" ColumnName="dificulty" />
+          <ScalarProperty Name="normal" ColumnName="normal" />
+          <ScalarProperty Name="killer" ColumnName="killer" />
+          <ScalarProperty Name="thermal" ColumnName="thermal" />
+          <ScalarProperty Name="arrow" ColumnName="arrow" />
+          <ScalarProperty Name="custom" ColumnName="custom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Thermo">
+      <EntityTypeMapping TypeName="sudokuappModel.Thermo">
+        <MappingFragment StoreEntitySet="Thermo">
+          <ScalarProperty Name="thermoId" ColumnName="thermoId" />
+          <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+          <ScalarProperty Name="start_cell" ColumnName="start_cell" />
+          <ScalarProperty Name="end_cell" ColumnName="end_cell" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tournament">
+      <EntityTypeMapping TypeName="sudokuappModel.Tournament">
+        <MappingFragment StoreEntitySet="Tournament">
+          <ScalarProperty Name="tournamentId" ColumnName="tournamentId" />
+          <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="finish_time" ColumnName="finish_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="sudokuappModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="usrId" ColumnName="usrId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+          <ScalarProperty Name="idiom" ColumnName="idiom" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Arrow_Cell" TypeName="sudokuappModel.Arrow_Cell" StoreEntitySet="Arrow_Cell">
+      <EndProperty Name="Arrow">
+        <ScalarProperty Name="arrowId" ColumnName="arrowId" />
+      </EndProperty>
+      <EndProperty Name="Cell">
+        <ScalarProperty Name="cellId" ColumnName="cellId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Killer_Cell" TypeName="sudokuappModel.Killer_Cell" StoreEntitySet="Killer_Cell">
+      <EndProperty Name="Cell">
+        <ScalarProperty Name="cellId" ColumnName="cellId" />
+      </EndProperty>
+      <EndProperty Name="Killer_box">
+        <ScalarProperty Name="killerId" ColumnName="killerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Sudoku_Cells_Puzzle" TypeName="sudokuappModel.Sudoku_Cells_Puzzle" StoreEntitySet="Sudoku_Cells_Puzzle">
+      <EndProperty Name="Cell">
+        <ScalarProperty Name="cellId" ColumnName="cellId" />
+      </EndProperty>
+      <EndProperty Name="Sudoku">
+        <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Sudoku_Cells_Solution" TypeName="sudokuappModel.Sudoku_Cells_Solution" StoreEntitySet="Sudoku_Cells_Solution">
+      <EndProperty Name="Cell">
+        <ScalarProperty Name="cellId" ColumnName="cellId" />
+      </EndProperty>
+      <EndProperty Name="Sudoku">
+        <ScalarProperty Name="sudokuId" ColumnName="sudokuId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Thermo_Cell" TypeName="sudokuappModel.Thermo_Cell" StoreEntitySet="Thermo_Cell">
+      <EndProperty Name="Cell">
+        <ScalarProperty Name="cellId" ColumnName="cellId" />
+      </EndProperty>
+      <EndProperty Name="Thermo">
+        <ScalarProperty Name="thermoId" ColumnName="thermoId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

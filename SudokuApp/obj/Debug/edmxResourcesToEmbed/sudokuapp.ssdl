@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sudokuappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Arrow">
+    <Key>
+      <PropertyRef Name="arrowId" />
+    </Key>
+    <Property Name="arrowId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sudokuId" Type="bigint" Nullable="false" />
+    <Property Name="start_cell" Type="bigint" Nullable="false" />
+    <Property Name="end_cell" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Arrow_Cell">
+    <Key>
+      <PropertyRef Name="arrowId" />
+      <PropertyRef Name="cellId" />
+    </Key>
+    <Property Name="arrowId" Type="bigint" Nullable="false" />
+    <Property Name="cellId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cell">
+    <Key>
+      <PropertyRef Name="cellId" />
+    </Key>
+    <Property Name="cellId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="row_index" Type="int" />
+    <Property Name="col_index" Type="int" />
+    <Property Name="cell_value" Type="int" />
+  </EntityType>
+  <EntityType Name="Killer_box">
+    <Key>
+      <PropertyRef Name="killerId" />
+    </Key>
+    <Property Name="killerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sudokuId" Type="bigint" Nullable="false" />
+    <Property Name="killer_value" Type="int" />
+  </EntityType>
+  <EntityType Name="Killer_Cell">
+    <Key>
+      <PropertyRef Name="killerId" />
+      <PropertyRef Name="cellId" />
+    </Key>
+    <Property Name="killerId" Type="bigint" Nullable="false" />
+    <Property Name="cellId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Participant">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="tournamentId" />
+    </Key>
+    <Property Name="userId" Type="bigint" Nullable="false" />
+    <Property Name="tournamentId" Type="bigint" Nullable="false" />
+    <Property Name="time" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="sudokuId" />
+      <PropertyRef Name="usrId" />
+    </Key>
+    <Property Name="sudokuId" Type="bigint" Nullable="false" />
+    <Property Name="usrId" Type="bigint" Nullable="false" />
+    <Property Name="review_value" Type="int" />
+  </EntityType>
+  <EntityType Name="Sudoku">
+    <Key>
+      <PropertyRef Name="sudokuId" />
+    </Key>
+    <Property Name="sudokuId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usrId" Type="bigint" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="rules" Type="varchar" MaxLength="600" />
+    <Property Name="dificulty" Type="varchar" MaxLength="6" />
+    <Property Name="normal" Type="bit" />
+    <Property Name="killer" Type="bit" />
+    <Property Name="thermal" Type="bit" />
+    <Property Name="arrow" Type="bit" />
+    <Property Name="custom" Type="bit" />
+  </EntityType>
+  <EntityType Name="Sudoku_Cells_Puzzle">
+    <Key>
+      <PropertyRef Name="sudokuId" />
+      <PropertyRef Name="cellId" />
+    </Key>
+    <Property Name="sudokuId" Type="bigint" Nullable="false" />
+    <Property Name="cellId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sudoku_Cells_Solution">
+    <Key>
+      <PropertyRef Name="sudokuId" />
+      <PropertyRef Name="cellId" />
+    </Key>
+    <Property Name="sudokuId" Type="bigint" Nullable="false" />
+    <Property Name="cellId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Thermo">
+    <Key>
+      <PropertyRef Name="thermoId" />
+    </Key>
+    <Property Name="thermoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sudokuId" Type="bigint" Nullable="false" />
+    <Property Name="start_cell" Type="bigint" Nullable="false" />
+    <Property Name="end_cell" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Thermo_Cell">
+    <Key>
+      <PropertyRef Name="thermoId" />
+      <PropertyRef Name="cellId" />
+    </Key>
+    <Property Name="thermoId" Type="bigint" Nullable="false" />
+    <Property Name="cellId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tournament">
+    <Key>
+      <PropertyRef Name="tournamentId" />
+    </Key>
+    <Property Name="tournamentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sudokuId" Type="bigint" Nullable="false" />
+    <Property Name="start_time" Type="datetime" />
+    <Property Name="finish_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="usrId" />
+    </Key>
+    <Property Name="usrId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="lastName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="admin" Type="bit" />
+    <Property Name="idiom" Type="varchar" MaxLength="64" />
+    <Property Name="country" Type="varchar" MaxLength="64" />
+  </EntityType>
+  <Association Name="fk_Arrow_Cell_arrowId">
+    <End Role="Arrow" Type="Self.Arrow" Multiplicity="1" />
+    <End Role="Arrow_Cell" Type="Self.Arrow_Cell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Arrow">
+        <PropertyRef Name="arrowId" />
+      </Principal>
+      <Dependent Role="Arrow_Cell">
+        <PropertyRef Name="arrowId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Arrow_Cell_cellId">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Arrow_Cell" Type="Self.Arrow_Cell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Arrow_Cell">
+        <PropertyRef Name="cellId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Arrow_end_cell">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Arrow" Type="Self.Arrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Arrow">
+        <PropertyRef Name="end_cell" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Arrow_start_cell">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Arrow" Type="Self.Arrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Arrow">
+        <PropertyRef Name="start_cell" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Arrow_sudokuId">
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="1" />
+    <End Role="Arrow" Type="Self.Arrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sudoku">
+        <PropertyRef Name="sudokuId" />
+      </Principal>
+      <Dependent Role="Arrow">
+        <PropertyRef Name="sudokuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Killer_box_sudokuId">
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="1" />
+    <End Role="Killer_box" Type="Self.Killer_box" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sudoku">
+        <PropertyRef Name="sudokuId" />
+      </Principal>
+      <Dependent Role="Killer_box">
+        <PropertyRef Name="sudokuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Killer_Cell_cellId">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Killer_Cell" Type="Self.Killer_Cell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Killer_Cell">
+        <PropertyRef Name="cellId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Killer_Cell_killerId">
+    <End Role="Killer_box" Type="Self.Killer_box" Multiplicity="1" />
+    <End Role="Killer_Cell" Type="Self.Killer_Cell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Killer_box">
+        <PropertyRef Name="killerId" />
+      </Principal>
+      <Dependent Role="Killer_Cell">
+        <PropertyRef Name="killerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Participant_tournamentId">
+    <End Role="Tournament" Type="Self.Tournament" Multiplicity="1" />
+    <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tournament">
+        <PropertyRef Name="tournamentId" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="tournamentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Participant_userId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="usrId" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Review_sudokuId">
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sudoku">
+        <PropertyRef Name="sudokuId" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="sudokuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Review_userId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="usrId" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="usrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sudoku_Cells_Puzzle_cellId">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Sudoku_Cells_Puzzle" Type="Self.Sudoku_Cells_Puzzle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Sudoku_Cells_Puzzle">
+        <PropertyRef Name="cellId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sudoku_Cells_Puzzle_sudokuId">
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="1" />
+    <End Role="Sudoku_Cells_Puzzle" Type="Self.Sudoku_Cells_Puzzle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sudoku">
+        <PropertyRef Name="sudokuId" />
+      </Principal>
+      <Dependent Role="Sudoku_Cells_Puzzle">
+        <PropertyRef Name="sudokuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sudoku_Cells_Solution_cellId">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Sudoku_Cells_Solution" Type="Self.Sudoku_Cells_Solution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Sudoku_Cells_Solution">
+        <PropertyRef Name="cellId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Sudoku_Cells_Solution_sudokuId">
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="1" />
+    <End Role="Sudoku_Cells_Solution" Type="Self.Sudoku_Cells_Solution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sudoku">
+        <PropertyRef Name="sudokuId" />
+      </Principal>
+      <Dependent Role="Sudoku_Cells_Solution">
+        <PropertyRef Name="sudokuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Thermo_Cell_cellId">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Thermo_Cell" Type="Self.Thermo_Cell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Thermo_Cell">
+        <PropertyRef Name="cellId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Thermo_Cell_thermoId">
+    <End Role="Thermo" Type="Self.Thermo" Multiplicity="1" />
+    <End Role="Thermo_Cell" Type="Self.Thermo_Cell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thermo">
+        <PropertyRef Name="thermoId" />
+      </Principal>
+      <Dependent Role="Thermo_Cell">
+        <PropertyRef Name="thermoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Thermo_end_cell">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Thermo" Type="Self.Thermo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Thermo">
+        <PropertyRef Name="end_cell" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Thermo_start_cell">
+    <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+    <End Role="Thermo" Type="Self.Thermo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cell">
+        <PropertyRef Name="cellId" />
+      </Principal>
+      <Dependent Role="Thermo">
+        <PropertyRef Name="start_cell" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Thermo_sudokuId">
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="1" />
+    <End Role="Thermo" Type="Self.Thermo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sudoku">
+        <PropertyRef Name="sudokuId" />
+      </Principal>
+      <Dependent Role="Thermo">
+        <PropertyRef Name="sudokuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Tournament_sudokuId">
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="1" />
+    <End Role="Tournament" Type="Self.Tournament" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sudoku">
+        <PropertyRef Name="sudokuId" />
+      </Principal>
+      <Dependent Role="Tournament">
+        <PropertyRef Name="sudokuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usrId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Sudoku" Type="Self.Sudoku" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="usrId" />
+      </Principal>
+      <Dependent Role="Sudoku">
+        <PropertyRef Name="usrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sudokuappModelStoreContainer">
+    <EntitySet Name="Arrow" EntityType="Self.Arrow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Arrow_Cell" EntityType="Self.Arrow_Cell" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cell" EntityType="Self.Cell" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Killer_box" EntityType="Self.Killer_box" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Killer_Cell" EntityType="Self.Killer_Cell" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Participant" EntityType="Self.Participant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sudoku" EntityType="Self.Sudoku" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sudoku_Cells_Puzzle" EntityType="Self.Sudoku_Cells_Puzzle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sudoku_Cells_Solution" EntityType="Self.Sudoku_Cells_Solution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Thermo" EntityType="Self.Thermo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Thermo_Cell" EntityType="Self.Thermo_Cell" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tournament" EntityType="Self.Tournament" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_Arrow_Cell_arrowId" Association="Self.fk_Arrow_Cell_arrowId">
+      <End Role="Arrow" EntitySet="Arrow" />
+      <End Role="Arrow_Cell" EntitySet="Arrow_Cell" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Arrow_Cell_cellId" Association="Self.fk_Arrow_Cell_cellId">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Arrow_Cell" EntitySet="Arrow_Cell" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Arrow_end_cell" Association="Self.fk_Arrow_end_cell">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Arrow" EntitySet="Arrow" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Arrow_start_cell" Association="Self.fk_Arrow_start_cell">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Arrow" EntitySet="Arrow" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Arrow_sudokuId" Association="Self.fk_Arrow_sudokuId">
+      <End Role="Sudoku" EntitySet="Sudoku" />
+      <End Role="Arrow" EntitySet="Arrow" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Killer_box_sudokuId" Association="Self.fk_Killer_box_sudokuId">
+      <End Role="Sudoku" EntitySet="Sudoku" />
+      <End Role="Killer_box" EntitySet="Killer_box" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Killer_Cell_cellId" Association="Self.fk_Killer_Cell_cellId">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Killer_Cell" EntitySet="Killer_Cell" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Killer_Cell_killerId" Association="Self.fk_Killer_Cell_killerId">
+      <End Role="Killer_box" EntitySet="Killer_box" />
+      <End Role="Killer_Cell" EntitySet="Killer_Cell" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Participant_tournamentId" Association="Self.fk_Participant_tournamentId">
+      <End Role="Tournament" EntitySet="Tournament" />
+      <End Role="Participant" EntitySet="Participant" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Participant_userId" Association="Self.fk_Participant_userId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Participant" EntitySet="Participant" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Review_sudokuId" Association="Self.fk_Review_sudokuId">
+      <End Role="Sudoku" EntitySet="Sudoku" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Review_userId" Association="Self.fk_Review_userId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sudoku_Cells_Puzzle_cellId" Association="Self.fk_Sudoku_Cells_Puzzle_cellId">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Sudoku_Cells_Puzzle" EntitySet="Sudoku_Cells_Puzzle" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sudoku_Cells_Puzzle_sudokuId" Association="Self.fk_Sudoku_Cells_Puzzle_sudokuId">
+      <End Role="Sudoku" EntitySet="Sudoku" />
+      <End Role="Sudoku_Cells_Puzzle" EntitySet="Sudoku_Cells_Puzzle" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sudoku_Cells_Solution_cellId" Association="Self.fk_Sudoku_Cells_Solution_cellId">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Sudoku_Cells_Solution" EntitySet="Sudoku_Cells_Solution" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Sudoku_Cells_Solution_sudokuId" Association="Self.fk_Sudoku_Cells_Solution_sudokuId">
+      <End Role="Sudoku" EntitySet="Sudoku" />
+      <End Role="Sudoku_Cells_Solution" EntitySet="Sudoku_Cells_Solution" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Thermo_Cell_cellId" Association="Self.fk_Thermo_Cell_cellId">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Thermo_Cell" EntitySet="Thermo_Cell" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Thermo_Cell_thermoId" Association="Self.fk_Thermo_Cell_thermoId">
+      <End Role="Thermo" EntitySet="Thermo" />
+      <End Role="Thermo_Cell" EntitySet="Thermo_Cell" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Thermo_end_cell" Association="Self.fk_Thermo_end_cell">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Thermo" EntitySet="Thermo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Thermo_start_cell" Association="Self.fk_Thermo_start_cell">
+      <End Role="Cell" EntitySet="Cell" />
+      <End Role="Thermo" EntitySet="Thermo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Thermo_sudokuId" Association="Self.fk_Thermo_sudokuId">
+      <End Role="Sudoku" EntitySet="Sudoku" />
+      <End Role="Thermo" EntitySet="Thermo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Tournament_sudokuId" Association="Self.fk_Tournament_sudokuId">
+      <End Role="Sudoku" EntitySet="Sudoku" />
+      <End Role="Tournament" EntitySet="Tournament" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usrId" Association="Self.fk_usrId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sudoku" EntitySet="Sudoku" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

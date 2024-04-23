@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="09013b04f81c4edb90301dd01b50baf0" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="sudokuappModel.Arrow" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Cell" Width="1.5" PointX="10.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Killer_box" Width="1.5" PointX="12.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Participant" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Review" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Sudoku" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Thermo" Width="1.5" PointX="12.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Tournament" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sudokuappModel.Users" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="sudokuappModel.fk_Arrow_end_cell" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Arrow_start_cell" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Arrow_sudokuId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Thermo_end_cell" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Thermo_start_cell" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Killer_box_sudokuId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Participant_tournamentId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Participant_userId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Review_sudokuId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Review_userId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Thermo_sudokuId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_Tournament_sudokuId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.fk_usrId" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.Arrow_Cell" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.Killer_Cell" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.Sudoku_Cells_Puzzle" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.Sudoku_Cells_Solution" ManuallyRouted="false" />
+        <AssociationConnector Association="sudokuappModel.Thermo_Cell" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

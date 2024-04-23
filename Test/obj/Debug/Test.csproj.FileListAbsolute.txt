@@ -1,0 +1,14 @@
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Test.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Test.pdb
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Microsoft.Analytics.Interfaces.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Microsoft.Analytics.Interfaces.Streaming.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Microsoft.Analytics.Types.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Microsoft.Analytics.UnitTest.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\ModelUtil.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\obj\Debug\Test.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\obj\Debug\Test.pdb
