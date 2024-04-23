@@ -65,7 +65,6 @@
     <Compile Include="Cell.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Killer_box.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>

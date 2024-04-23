@@ -10,11 +10,6 @@ C:\Users\Nicolas\source\repos\SudokuApp\SudokuApp\obj\Debug\SudokuApp.dll
 C:\Users\Nicolas\source\repos\SudokuApp\SudokuApp\obj\Debug\SudokuApp.pdb
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\obj\Debug\Model.csproj.AssemblyReference.cache
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\obj\Debug\Model.csproj.CoreCompileInputs.cache
-C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\obj\Debug\SudokuApp.dll
-C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\obj\Debug\SudokuApp.pdb
-C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\SudokuApp.dll.config
-C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\SudokuApp.dll
-C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\SudokuApp.pdb
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\EntityFramework.dll
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\Microsoft.Analytics.Interfaces.dll
@@ -26,3 +21,8 @@ C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\EntityFram
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\Ninject.xml
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\obj\Debug\Model.csproj.CopyComplete
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\Model.dll.config
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\Model.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\bin\Debug\Model.pdb
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\obj\Debug\Model.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\SudokuApp\obj\Debug\Model.pdb
