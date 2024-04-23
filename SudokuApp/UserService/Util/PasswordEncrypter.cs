@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuApp.Util
+namespace Es.Udc.DotNet.SudokuApp.Model.Util
 {
     public static class PasswordEncrypter
     {

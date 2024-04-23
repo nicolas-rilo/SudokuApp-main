@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuApp.UsuarioDao
+namespace Es.Udc.DotNet.SudokuApp.Model.UsuarioDao
 {
     /// <summary>
     /// A Custom VO which keeps the results for a login action.

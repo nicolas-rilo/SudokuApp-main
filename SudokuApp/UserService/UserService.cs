@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
+using Es.Udc.DotNet.SudokuApp.Model.Exceptions;
+using Es.Udc.DotNet.SudokuApp.Model.UsuarioDao;
+using Es.Udc.DotNet.SudokuApp.Model.UsuarioService;
+using Es.Udc.DotNet.SudokuApp.Model.Util;
+using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
 using Ninject;
-using SudokuApp.Exceptions;
-using SudokuApp.UsersDao;
-using SudokuApp.UsuarioDao;
-using SudokuApp.UsuarioService;
-using SudokuApp.Util;
 
-namespace SudokuApp.UserService
+namespace Es.Udc.DotNet.SudokuApp.Model.UserService
 {
     public class UserService : IUserService
     {

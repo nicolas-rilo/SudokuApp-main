@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuApp.Exceptions
+namespace Es.Udc.DotNet.SudokuApp.Model.Exceptions
 {
     /// <summary>
     /// Public <c>ModelException</c> which captures the error 

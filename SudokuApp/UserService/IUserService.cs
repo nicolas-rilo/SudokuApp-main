@@ -1,14 +1,14 @@
-﻿using Ninject;
-using SudokuApp.UsersDao;
-using SudokuApp.UsuarioDao;
-using SudokuApp.UsuarioService;
+﻿using Es.Udc.DotNet.SudokuApp.Model.UsuarioDao;
+using Es.Udc.DotNet.SudokuApp.Model.UsuarioService;
+using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuApp.UserService
+namespace Es.Udc.DotNet.SudokuApp.Model.UserService
 {
     public interface IUserService
     {

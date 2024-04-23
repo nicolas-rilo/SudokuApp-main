@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
+using Es.Udc.DotNet.SudokuApp.Model;
 
-namespace SudokuApp.UsersDao
+namespace Es.Udc.DotNet.SudokuApp.ModelUsersDao
 {
     class UserDaoEntityFramework : GenericDaoEntityFramework<Users, Int64>, IUsersDao
     {

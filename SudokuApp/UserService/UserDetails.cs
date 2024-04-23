@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuApp.UsuarioService
+namespace Es.Udc.DotNet.SudokuApp.Model.UsuarioService
 {
     /// <summary>
     /// VO Class which contains the user details

@@ -1,11 +1,12 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Dao;
+using Es.Udc.DotNet.SudokuApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuApp.UsersDao
+namespace Es.Udc.DotNet.SudokuApp.ModelUsersDao
 {
     public interface IUsersDao: IGenericDao<Users, Int64>
     {

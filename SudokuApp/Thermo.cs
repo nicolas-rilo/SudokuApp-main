@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SudokuApp
+namespace Es.Udc.DotNet.SudokuApp.Model
 {
     using System;
     using System.Collections.Generic;
