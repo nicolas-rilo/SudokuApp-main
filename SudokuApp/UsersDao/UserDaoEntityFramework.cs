@@ -10,7 +10,7 @@ using Es.Udc.DotNet.SudokuApp.Model;
 
 namespace Es.Udc.DotNet.SudokuApp.ModelUsersDao
 {
-    class UserDaoEntityFramework : GenericDaoEntityFramework<Users, Int64>, IUsersDao
+    public class UserDaoEntityFramework : GenericDaoEntityFramework<Users, Int64>, IUsersDao
     {
         public UserDaoEntityFramework()
         {
