@@ -65,6 +65,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
                 usuario.email = userDetails.Email;
                 usuario.idiom = userDetails.idiom;
                 usuario.country = userDetails.country;
+                usuario.admin = userDetails.admin;
 
                 UsersDao.Create(usuario);
 
@@ -75,7 +76,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
         public UserDetails FindUserDetails(long usrId)
         {
             Users userFind = UsersDao.Find(usrId);
-            UserDetails userDetails = new UserDetails (userFind.firstName, userFind.lastName, userFind.email, userFind.idiom, userFind.country);
+            UserDetails userDetails = new UserDetails (userFind.firstName, userFind.lastName, userFind.email, userFind.idiom, userFind.country,true);
             return userDetails;
         }
 

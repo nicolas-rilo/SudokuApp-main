@@ -25,25 +25,18 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UsuarioService
 
         public bool admin { get; set; }
 
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UsuarioDetails"/>
-        /// class.
-        /// </summary>
-        /// <param name="name">The user's first name.</param>
-        /// <param name="lastName">The user's last name.</param>
-        /// <param name="email">The user's email.</param>
-        /// <param name="idiom">The language.</param>
-        /// <param name="country">The country.</param>
-        public UserDetails(String name, String lastName,
-            String email, String idiom, String country)
+        public UserDetails(string firstName, string lastName, string email, string idiom, string country, bool admin)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.Email = email;
             this.idiom = idiom;
             this.country = country;
+            this.admin = admin;
         }
+
+
+
 
         public override bool Equals(object obj)
         {

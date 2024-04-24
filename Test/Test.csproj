@@ -82,6 +82,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="IUserServiceTest.cs" />
     <Compile Include="TestManager.cs" />
     <Compile Include="NinjectTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

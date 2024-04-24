@@ -14,10 +14,6 @@ namespace Es.Udc.DotNet.SudokuApp.Test
 {
     public class TestManager
     {
-        private static IKernel kernel;
-        private static IUserService userService;
-
-        public TestContext TestContext { get; set; }
 
         public static IKernel ConfigureNInjectKernel()
         {
@@ -27,6 +23,8 @@ namespace Es.Udc.DotNet.SudokuApp.Test
 
             kernel.Bind<IUsersDao>().
                 To<UserDaoEntityFramework>();
+            kernel.Bind<IUserService>().
+                To<UserService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["sudokuApp"].ConnectionString; 
@@ -39,9 +37,19 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             return kernel;
         }
 
-        internal static void ClearNInjectKernel(IKernel kernel)
+        public static IKernel ConfigureNInjectKernel(string moduleFilename)
         {
-            throw new NotImplementedException();
+            NinjectSettings settings = new NinjectSettings() { LoadExtensions = true };
+            IKernel kernel = new StandardKernel(settings);
+
+            kernel.Load(moduleFilename);
+
+            return kernel;
+        }
+
+        public static void ClearNInjectKernel(IKernel kernel)
+        {
+            kernel.Dispose();
         }
     }
 }
