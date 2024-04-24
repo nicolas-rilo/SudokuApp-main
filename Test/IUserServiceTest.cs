@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.SudokuApp.Model;
 using Es.Udc.DotNet.SudokuApp.Model.UserService;
+using Es.Udc.DotNet.SudokuApp.Model.UsuarioDao;
 using Es.Udc.DotNet.SudokuApp.Model.UsuarioService;
 using Es.Udc.DotNet.SudokuApp.Model.Util;
 using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
@@ -33,6 +34,8 @@ namespace Es.Udc.DotNet.SudokuApp.Test
         private const string email1 = "user1@udc.es";
         private const string idiom = "es";
         private const string country = "ES";
+        private const string idiom1 = "EN";
+        private const string country1 = "US";
         private const long NON_EXISTENT_USER_ID = -1;
         private const string NON_EXISTENT_PASS = "nopasswd";
         private const string NON_EXISTENT_PSEUDONIM = "pseudo";
@@ -94,7 +97,81 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                 Assert.AreEqual(true, usuario.admin);
             }
         }
-    
+
+        [TestMethod]
+        public void TestUsuarioExists()
+        {
+            using (var scope = new TransactionScope())
+            {
+                userService.RegisterUser(userName, clearPassword,
+                   new UserDetails(firstName, lastName, email, idiom, country, true));
+                bool existe = userService.UserExists(userName);
+                Assert.IsTrue(existe);
+            }
+        }
+
+
+        [TestMethod]
+        public void TestLoginUser()
+        {
+            using (var scope = new TransactionScope())
+            {
+                long usrId = userService.RegisterUser(userName, clearPassword,
+                    new UserDetails(firstName, lastName, email, idiom, country, true));
+
+                Users user = usersDao.Find(usrId);
+                LoginResult result = userService.Login(user.userName, clearPassword, false);
+
+                Assert.AreEqual(result.UserId, usrId);
+                Assert.AreEqual(result.Name, user.firstName);
+                Assert.AreEqual(result.Idiom, user.idiom);
+                Assert.AreEqual(result.Country, user.country);
+                Assert.AreEqual(result.EncryptedPassword, user.password);
+            }
+
+        }
+
+        [TestMethod]
+        public void TestUpdateUserDetails()
+        {
+            using (var scope = new TransactionScope())
+            {
+                long usrId = userService.RegisterUser(userName, clearPassword, new UserDetails(firstName, lastName, email, idiom, country,false));
+
+                Users usuario = usersDao.Find(usrId);
+
+                userService.UpdateUserProfileDetails(usrId, new UserDetails(firstName1, lastName1, email1, idiom1, country1,true));
+
+                Users usuarioUpdated = usersDao.Find(usrId);
+
+                Assert.AreEqual(usuario, usuarioUpdated);
+                Assert.AreEqual(firstName1, usuarioUpdated.firstName);
+                Assert.AreEqual(lastName1, usuarioUpdated.lastName);
+                Assert.AreEqual(email1, usuarioUpdated.email);
+                Assert.AreEqual(idiom1, usuarioUpdated.idiom);
+                Assert.AreEqual(country1, usuarioUpdated.country);
+                Assert.AreEqual(true, usuarioUpdated.admin);
+            }
+        }
+
+        [TestMethod]
+        public void TestFindDetails()
+        {
+            using (var scope = new TransactionScope())
+            {
+                long usrId = userService.RegisterUser(userName, clearPassword, new UserDetails(firstName, lastName, email, idiom, country, true));
+
+                UserDetails details = userService.FindUserDetails(usrId);
+
+                Assert.AreEqual(firstName, details.firstName);
+                Assert.AreEqual(lastName, details.lastName);
+                Assert.AreEqual(email, details.Email);
+                Assert.AreEqual(idiom, details.idiom);
+                Assert.AreEqual(country, details.country);
+
+            }
+        }
+
     }
 
 

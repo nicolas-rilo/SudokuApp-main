@@ -89,6 +89,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
             user.email = userDetails.Email;
             user.idiom = userDetails.idiom;
             user.country = userDetails.country;
+            user.admin = userDetails.admin;
 
             UsersDao.Update(user);
         }
