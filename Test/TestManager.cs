@@ -5,6 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Es.Udc.DotNet.SudokuApp.Model.CellDao;
+using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
+using Es.Udc.DotNet.SudokuApp.Model.SudokuService;
 using Es.Udc.DotNet.SudokuApp.Model.UserService;
 using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -23,8 +26,19 @@ namespace Es.Udc.DotNet.SudokuApp.Test
 
             kernel.Bind<IUsersDao>().
                 To<UserDaoEntityFramework>();
+
             kernel.Bind<IUserService>().
                 To<UserService>();
+
+            kernel.Bind<ISudokuDao>().
+                To<SudokuDaoEntityFramework>();
+
+            kernel.Bind<ISudokuService>().
+                To<SudokuService>();
+
+            kernel.Bind<ICellDao>()
+                .To<CellDaoEntityFramework>();
+
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["sudokuApp"].ConnectionString; 

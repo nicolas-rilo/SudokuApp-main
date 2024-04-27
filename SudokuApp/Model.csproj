@@ -65,6 +65,8 @@
     <Compile Include="Cell.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="CellDao\CellDaoEntityFramework.cs" />
+    <Compile Include="CellDao\ICellDao.cs" />
     <Compile Include="Killer_box.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
@@ -93,6 +95,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SudokuApp.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SudokuDao\ISudokuDao.cs" />
+    <Compile Include="SudokuDao\SudokuDaoEntityFramework.cs" />
+    <Compile Include="SudokuService\ISudokuService.cs" />
+    <Compile Include="SudokuService\SudokuDto.cs" />
+    <Compile Include="SudokuService\SudokuService.cs" />
     <Compile Include="Thermo.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
@@ -139,6 +146,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

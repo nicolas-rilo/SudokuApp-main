@@ -10,8 +10,12 @@ using Es.Udc.DotNet.SudokuApp.Model;
 
 namespace Es.Udc.DotNet.SudokuApp.Model.SudokuDao
 {
-    class SudokuDaoEntityFramework : GenericDaoEntityFramework<Sudoku, Int64>, ISudokuDao
+    public class SudokuDaoEntityFramework : GenericDaoEntityFramework<Sudoku, Int64>, ISudokuDao
     {
+        public SudokuDaoEntityFramework()
+        {
+        }
+
         public List<Sudoku> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
         {
 
