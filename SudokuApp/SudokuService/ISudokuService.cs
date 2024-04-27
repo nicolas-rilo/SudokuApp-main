@@ -14,7 +14,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
     public interface ISudokuService
     {
         [Inject]
-        ISudokuDao sudokuDao { set; }
+        ISudokuDao sudokuDao{ set; }
 
         List<Sudoku > findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size);
 

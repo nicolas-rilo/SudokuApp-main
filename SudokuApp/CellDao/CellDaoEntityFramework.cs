@@ -23,9 +23,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
                 for (int j = 0; j < 9; j++) {
                     Cell cell = new Cell();
                     cell.cell_value = puzzle[i,j];
-                    cell.col_index = i;
-                    cell.row_index = j;
-                    Create(cell);
+                    cell.col_index = i+1;
+                    cell.row_index = j+1;
+                    base.Create(cell);
                     sudoku.Cell.Add(cell);
                     sudokuDao.Update(sudoku);
                 }
@@ -40,9 +40,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
                 {
                     Cell cell = new Cell();
                     cell.cell_value = solution[i,j];
-                    cell.col_index = i;
-                    cell.row_index = j;
-                    Create(cell);
+                    cell.col_index = i+1;
+                    cell.row_index = j+1;
+                    base.Create(cell);
                     sudoku.Cell1.Add(cell);
                     sudokuDao.Update(sudoku);
                 }

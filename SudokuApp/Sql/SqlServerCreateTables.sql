@@ -105,7 +105,7 @@ CREATE TABLE Cell(
 	CONSTRAINT PK_Cell PRIMARY KEY (cellId),
 	CONSTRAINT row_index CHECK (row_index BETWEEN 1 AND 9),
 	CONSTRAINT col_index CHECK (col_index BETWEEN 1 AND 9),
-	CONSTRAINT cell_value CHECK (cell_value BETWEEN 1 AND 9),
+	CONSTRAINT cell_value CHECK (cell_value BETWEEN 0 AND 9),
 )
 
 CREATE TABLE Sudoku_Cells_Puzzle(

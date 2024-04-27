@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using Es.Udc.DotNet.SudokuApp.Model;
+using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuService;
 using Es.Udc.DotNet.SudokuApp.Model.UserService;
 using Es.Udc.DotNet.SudokuApp.Model.UsuarioService;
+using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 
@@ -21,6 +23,10 @@ namespace Es.Udc.DotNet.SudokuApp.Test
         private static IKernel kernel;
         private static IUserService userService;
         private static ISudokuService sudokuService;
+        private static IUsersDao usersDao;
+        private static ISudokuDao sudokuDao;
+
+
 
         private const string userName = "userName";
         private const string clearPassword = "password";
@@ -80,8 +86,11 @@ namespace Es.Udc.DotNet.SudokuApp.Test
         public static void MyClassInitialize(TestContext testContext)
         {
             kernel = TestManager.ConfigureNInjectKernel();
+
             userService = kernel.Get<IUserService>();
             sudokuService = kernel.Get<ISudokuService>();
+            sudokuDao = kernel.Get<ISudokuDao>();
+            usersDao = kernel.Get<IUsersDao>();
         }
 
         [ClassCleanup()]
