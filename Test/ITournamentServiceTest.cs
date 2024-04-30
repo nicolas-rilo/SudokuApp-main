@@ -161,7 +161,49 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                 Assert.AreEqual(participationDto.rank, 1);
             }
         }
+        [TestMethod]
+        public void GetParticipantsOfaTournmanet()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                long usrId = userService.RegisterUser(userName, clearPassword,
+                    new UserDetails(firstName, lastName, email, idiom, country, true));
+                long usrId1 = userService.RegisterUser("aa", "bb",
+                    new UserDetails(firstName1, lastName1, email1, idiom1, country1, true));
 
+                SudokuDto sudokuDto = new SudokuDto(usrId, "sudoku1", "no rules", "easy", true, false,
+                    false, false, false, matriz1, matrizSolution);
+
+                long sudokuId = sudokuService.uploadSudoku(sudokuDto);
+                DateTime start = new DateTime(2024, 4, 30, 14, 0, 0);
+                DateTime end = new DateTime(2024, 4, 30, 18, 0, 0);
+
+                long tournamentId = tournamentService.createTournament(sudokuId, start, end);
+
+                TimeSpan mark = TimeSpan.FromMinutes(15);
+                TimeSpan mark1 = TimeSpan.FromMinutes(16);
+
+
+                tournamentService.participateInTournament(usrId, tournamentId, mark);
+
+                tournamentService.participateInTournament(usrId1, tournamentId, mark1);
+
+                List<ParticipationDto> participationDtos = tournamentService.getRanking(tournamentId,0,2);
+
+                Assert.AreEqual(participationDtos.First().rank, 1);
+                Assert.AreEqual(participationDtos.First().userId, usrId);
+                Assert.AreEqual(participationDtos.First().time, mark);
+
+                Assert.AreEqual(participationDtos[1].rank, 2);
+                Assert.AreEqual(participationDtos[1].userId, usrId1);
+                Assert.AreEqual(participationDtos[1].time, mark1);
+
+
+
+
+
+            }
+        }
 
 
 

@@ -29,13 +29,13 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentDao
             var result =
                 (from i in participants
                  where i.tournamentId == tournament.tournamentId
-                 orderby i.time descending
+                 orderby i.time ascending
                  select new
                  {
                      Time = i.time,
                      UserId = i.userId,
                      Rank = (from o in participants
-                             where o.time > i.time
+                             where o.time < i.time
                              select o).Count() + 1
                  });
 
@@ -55,13 +55,13 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentDao
             var result =
                 (from i in participants
                  where i.tournamentId == tournament.tournamentId
-                 orderby i.time descending
+                 orderby i.time ascending
                  select new
                  {
                      Time = i.time,
                      UserId = i.userId,
                      Rank = (from o in participants
-                             where o.time > i.time
+                             where o.time < i.time
                              select o).Count() + 1
                  });
 
