@@ -111,6 +111,42 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                     false,false,false, matriz1, matrizSolution);
 
                 sudokuService.uploadSudoku(sudokuDto);
+
+                List<SudokuDto> sudokuDtos = sudokuService.findByUser(usrId,0,1);
+
+                SudokuDto sudokuDto1 = sudokuDtos.First();
+
+                Assert.AreEqual(sudokuDto1.name, "sudoku1");
+                Assert.AreEqual(sudokuDto1.rules, "no rules");
+                Assert.AreEqual(sudokuDto1.dificulty, "easy");
+                Assert.AreEqual(sudokuDto1.nomal, true);
+                Assert.AreEqual(sudokuDto1.killer, false);
+                Assert.AreEqual(sudokuDto1.puzzle[0,0], matriz1[0,0]);
+                Assert.AreEqual(sudokuDto1.puzzle[0, 1], matriz1[0, 1]);
+                Assert.AreEqual(sudokuDto1.puzzle[0, 2], matriz1[0, 2]);
+
+                Assert.AreEqual(sudokuDto1.solution[0, 0], matrizSolution[0, 0]);
+                Assert.AreEqual(sudokuDto1.solution[0, 1], matrizSolution[0, 1]);
+                Assert.AreEqual(sudokuDto1.solution[0, 2], matrizSolution[0, 2]);
+
+
+
+
+            }
+        }
+
+        static void ImprimirMatriz(int[,] matriz)
+        {
+            int filas = matriz.GetLength(0);
+            int columnas = matriz.GetLength(1);
+
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    Console.Write(matriz[i, j] + "\t");
+                }
+                Console.WriteLine();
             }
         }
     }

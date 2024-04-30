@@ -13,5 +13,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
 
         void addCellsToSudokuSolution(Sudoku sudoku, int[,] solution);
 
+        int[,] getSudokuCellPuzzle(Sudoku sudoku);
+
+        int[,] getSudokuCellSolution(Sudoku sudoku);
+
     }
 }

@@ -18,7 +18,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
         List<Sudoku > findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size);
 
-        List<Sudoku> findByUser(long userId, int start, int size);
+        List<SudokuDto> findByUser(long userId, int start, int size);
 
         long uploadSudoku(SudokuDto sudokuDto);
 

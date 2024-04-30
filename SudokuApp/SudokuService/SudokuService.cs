@@ -25,10 +25,22 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             return sudokuDao.findByFilter(name, dificulty, killer, thermal, arrow, custom, start, size);
         }
 
-        public List<Sudoku> findByUser(long userId, int start, int size)
+        private SudokuDto sudokuToSudokudto (Sudoku sudoku) {
+            return new SudokuDto(sudoku.usrId,sudoku.name,sudoku.rules,sudoku.dificulty, (bool)sudoku.normal, (bool)sudoku.killer,
+                (bool)sudoku.thermal, (bool)sudoku.arrow, (bool)sudoku.custom, cellDao.getSudokuCellPuzzle(sudoku), cellDao.getSudokuCellSolution(sudoku));
+        }
+
+        public List<SudokuDto> findByUser(long userId, int start, int size)
         {
             Users user = usersDao.Find(userId);
-            return sudokuDao.findByUser(user, start, size);
+            List<Sudoku> sudokus = sudokuDao.findByUser(user, start, size);
+            List<SudokuDto> sudokuDtos = new List<SudokuDto>();
+
+            foreach (Sudoku s in sudokus) {
+                sudokuDtos.Add(sudokuToSudokudto(s));
+            }
+
+            return sudokuDtos;
         }
 
         public void removeSudoku(long sudokuId)

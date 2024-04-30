@@ -26,7 +26,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
                     cell.col_index = i+1;
                     cell.row_index = j+1;
                     base.Create(cell);
-                    sudoku.Cell.Add(cell);
+                    sudoku.Cell1.Add(cell);
                     sudokuDao.Update(sudoku);
                 }
             }
@@ -43,10 +43,37 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
                     cell.col_index = i+1;
                     cell.row_index = j+1;
                     base.Create(cell);
-                    sudoku.Cell1.Add(cell);
+                    sudoku.Cell.Add(cell);
                     sudokuDao.Update(sudoku);
                 }
             }
+        }
+
+        public int[,] getSudokuCellPuzzle(Sudoku sudoku)
+        {
+            List<Cell> cells = sudoku.Cell1.ToList();
+            int[,] result = new int[9,9];
+
+
+            foreach (Cell i in cells) {
+                result[(int)i.col_index-1, (int)i.row_index - 1] = (int)i.cell_value;  
+            }
+
+            return result;
+        }
+
+        public int[,] getSudokuCellSolution(Sudoku sudoku)
+        {
+            List<Cell> cells = sudoku.Cell.ToList();
+            int[,] result = new int[10, 10];
+
+
+            foreach (Cell i in cells)
+            {
+                result[(int)i.col_index-1, (int)i.row_index - 1] = (int)i.cell_value;
+            }
+
+            return result;
         }
     }
 }
