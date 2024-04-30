@@ -154,8 +154,11 @@ namespace Es.Udc.DotNet.SudokuApp.Test
 
                 tournamentService.participateInTournament(usrId,tournamentId,mark);
 
-                
+                ParticipationDto participationDto = tournamentService.getUserRank(usrId, tournamentId);
 
+                Assert.AreEqual(participationDto.userId, usrId);
+                Assert.AreEqual(participationDto.time, mark);
+                Assert.AreEqual(participationDto.rank, 1);
             }
         }
 
