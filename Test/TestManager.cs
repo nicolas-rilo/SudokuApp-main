@@ -6,9 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.SudokuApp.Model.CellDao;
+using Es.Udc.DotNet.SudokuApp.Model.ParticipantDao;
 using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuService;
+using Es.Udc.DotNet.SudokuApp.Model.TournamentDao;
+using Es.Udc.DotNet.SudokuApp.Model.TournamentService;
 using Es.Udc.DotNet.SudokuApp.Model.UserService;
 using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -40,9 +43,17 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             kernel.Bind<ICellDao>()
                 .To<CellDaoEntityFramework>();
 
-            kernel.Bind<IReviewDao>()
+            kernel.Bind<IReviewDao>()   
                 .To<ReviewDaoEntityFramework>();
 
+            kernel.Bind<ITournamentService>()
+                .To<TournamentService>();
+
+            kernel.Bind<ITournamentDao>()
+                .To<TournamentDaoEntityFramework>();
+
+            kernel.Bind<IParticipantDao>()
+                .To<ParticipantDaoEntityFramework>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["sudokuApp"].ConnectionString; 
