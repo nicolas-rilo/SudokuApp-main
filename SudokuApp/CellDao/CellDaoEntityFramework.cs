@@ -49,6 +49,26 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
             }
         }
 
+        public void updateCellsPuzzle(Sudoku sudoku, int[,] puzzle)
+        {
+            List<Cell> cells = sudoku.Cell1.ToList();
+            List<Cell> newCells = new List<Cell>();
+
+
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    Cell cell = new Cell();
+                    cell.cell_value = puzzle[i, j];
+                    cell.col_index = i + 1;
+                    cell.row_index = j + 1;
+                    newCells.Add(cell);
+                }
+            }
+
+        }
+
         public int[,] getSudokuCellPuzzle(Sudoku sudoku)
         {
             List<Cell> cells = sudoku.Cell1.ToList();
@@ -74,6 +94,11 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
             }
 
             return result;
+        }
+
+        public void updateCellsSolution(Sudoku sudoku, int[,] solution)
+        {
+            throw new NotImplementedException();
         }
     }
 }

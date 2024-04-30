@@ -16,13 +16,17 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         [Inject]
         ISudokuDao sudokuDao{ set; }
 
-        List<Sudoku > findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size);
+        List<SudokuDto> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size);
 
         List<SudokuDto> findByUser(long userId, int start, int size);
 
         long uploadSudoku(SudokuDto sudokuDto);
 
-        bool reviewSudoku(long sudokuId, int review);
+        void reviewSudoku(long sudokuId, long usrId ,int review);
+
+        List<Review> GetReviews(long sudokuId, int start, int size);
+
+        int getAverageReview(long sudokuId);
 
         long updateSudoku(long sudokuId, SudokuDto sudokuDto);
 

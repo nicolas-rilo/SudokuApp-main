@@ -77,6 +77,8 @@
     <Compile Include="Review.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="ReviewDao\IReviewDao.cs" />
+    <Compile Include="ReviewDao\ReviewDaoEntityFramework.cs" />
     <Compile Include="Sudoku.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>

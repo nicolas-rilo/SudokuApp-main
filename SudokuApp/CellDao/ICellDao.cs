@@ -17,5 +17,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
 
         int[,] getSudokuCellSolution(Sudoku sudoku);
 
+        void updateCellsPuzzle(Sudoku sudoku, int[,] puzzle);
+        void updateCellsSolution(Sudoku sudoku, int[,] solution);
+
+
     }
 }

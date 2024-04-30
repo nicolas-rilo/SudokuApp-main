@@ -5,6 +5,7 @@ using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.SudokuApp.Model.CellDao;
+using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
 using Ninject;
@@ -19,11 +20,23 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         public ICellDao cellDao{ private get; set; }
         [Inject]
         public ISudokuDao sudokuDao { private get; set; }
+        [Inject]
+        public IReviewDao reviewDao { private get; set; }
 
-        public List<Sudoku> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
+
+        public List<SudokuDto> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
         {
-            return sudokuDao.findByFilter(name, dificulty, killer, thermal, arrow, custom, start, size);
+            List<Sudoku> sudokus = sudokuDao.findByFilter(name, dificulty, killer, thermal, arrow, custom, start, size);
+            List<SudokuDto> sudokuDtos = new List<SudokuDto>();
+
+
+            foreach (Sudoku s in sudokus){
+                sudokuDtos.Add(sudokuToSudokudto(s));
+            }
+
+            return sudokuDtos;
         }
+
 
         private SudokuDto sudokuToSudokudto (Sudoku sudoku) {
             return new SudokuDto(sudoku.usrId,sudoku.name,sudoku.rules,sudoku.dificulty, (bool)sudoku.normal, (bool)sudoku.killer,
@@ -54,9 +67,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             sudokuDao.Remove(sudokuId);
         }
 
-        public bool reviewSudoku(long sudokuId, int review)
+        public void reviewSudoku(long sudokuId, long usrId, int review)
         {
-            throw new NotImplementedException();
+            reviewDao.addReview(sudokuDao.Find(sudokuId),usersDao.Find(usrId),review);
         }
 
         public long updateSudoku(long sudokuId, SudokuDto sudokuDto)
@@ -99,6 +112,25 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             cellDao.addCellsToSudokuSolution(sudoku, sudokuDto.solution);
 
             return sudoku.sudokuId;
+        }
+
+        public List<Review> GetReviews(long sudokuId, int start, int size)
+        {
+            return reviewDao.getSudokuReviews(sudokuDao.Find(sudokuId), start, size);
+        }
+
+        public int getAverageReview(long sudokuId)
+        {
+            List<Review> reviews = reviewDao.getSudokuReviews(sudokuDao.Find(sudokuId));
+            int total = 0;
+
+            foreach (Review a in reviews) {
+                total += (int) a.review_value;    
+            }
+
+            double result = total / reviews.Count();
+            return (int) Math.Round(result);
+
         }
     }
 }

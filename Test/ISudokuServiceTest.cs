@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using Es.Udc.DotNet.SudokuApp.Model;
+using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuService;
 using Es.Udc.DotNet.SudokuApp.Model.UserService;
@@ -25,6 +26,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
         private static ISudokuService sudokuService;
         private static IUsersDao usersDao;
         private static ISudokuDao sudokuDao;
+        private static IReviewDao reviewDao;
 
 
 
@@ -91,6 +93,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             sudokuService = kernel.Get<ISudokuService>();
             sudokuDao = kernel.Get<ISudokuDao>();
             usersDao = kernel.Get<IUsersDao>();
+            reviewDao = kernel.Get<IReviewDao>();
         }
 
         [ClassCleanup()]
@@ -128,26 +131,39 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                 Assert.AreEqual(sudokuDto1.solution[0, 0], matrizSolution[0, 0]);
                 Assert.AreEqual(sudokuDto1.solution[0, 1], matrizSolution[0, 1]);
                 Assert.AreEqual(sudokuDto1.solution[0, 2], matrizSolution[0, 2]);
-
-
-
-
             }
         }
 
-        static void ImprimirMatriz(int[,] matriz)
+
+
+        [TestMethod]
+        public void TestReviews()
         {
-            int filas = matriz.GetLength(0);
-            int columnas = matriz.GetLength(1);
-
-            for (int i = 0; i < filas; i++)
+            using (TransactionScope scope = new TransactionScope())
             {
-                for (int j = 0; j < columnas; j++)
-                {
-                    Console.Write(matriz[i, j] + "\t");
-                }
-                Console.WriteLine();
+                long usrId = userService.RegisterUser(userName, clearPassword,
+                        new UserDetails(firstName, lastName, email, idiom, country, true));
+
+                long usrId1 = userService.RegisterUser("aa", "bb",
+                        new UserDetails(firstName1, lastName1, email1, idiom1, country1, true));
+
+
+                SudokuDto sudokuDto = new SudokuDto(usrId, "sudoku1", "no rules", "easy", true, false,
+                    false, false, false, matriz1, matrizSolution);
+
+               long sudokuId = sudokuService.uploadSudoku(sudokuDto);
+
+
+                sudokuService.reviewSudoku(sudokuId, usrId, 5);
+                sudokuService.reviewSudoku(sudokuId, usrId1, 4);
+
+                List<Review> reviews = sudokuService.GetReviews(sudokuId,0,2);
+
+                Assert.AreEqual(reviews.First().review_value, 5);
+
+                Assert.AreEqual(sudokuService.getAverageReview(sudokuId), 4);
             }
         }
+
     }
 }

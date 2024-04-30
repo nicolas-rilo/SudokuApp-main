@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.SudokuApp.Model.CellDao;
+using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuService;
 using Es.Udc.DotNet.SudokuApp.Model.UserService;
@@ -38,6 +39,9 @@ namespace Es.Udc.DotNet.SudokuApp.Test
 
             kernel.Bind<ICellDao>()
                 .To<CellDaoEntityFramework>();
+
+            kernel.Bind<IReviewDao>()
+                .To<ReviewDaoEntityFramework>();
 
 
             string connectionString =
