@@ -31,5 +31,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         long updateSudoku(long sudokuId, SudokuDto sudokuDto);
 
         void removeSudoku(long sudokuId);
+
+        long createArrow(long sudokuId, (int,int) startCell, (int, int) endCell, List<(int,int)> cells);
+
+        List<ArrowDto> getSudokuArrows(long sudokuId);
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
+using Es.Udc.DotNet.SudokuApp.Model.ArrowDao;
 using Es.Udc.DotNet.SudokuApp.Model.CellDao;
 using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
@@ -22,7 +23,8 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         public ISudokuDao sudokuDao { private get; set; }
         [Inject]
         public IReviewDao reviewDao { private get; set; }
-
+        [Inject]
+        public IArrowDao arrowDao { private get; set; }
 
         public List<SudokuDto> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
         {
@@ -131,6 +133,60 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             double result = total / reviews.Count();
             return (int) Math.Round(result);
 
+        }
+
+        public long createArrow(long sudokuId, (int, int) startCell, (int, int) endCell, List<(int, int)> cells)
+        {
+            Sudoku sudoku = sudokuDao.Find(sudokuId);
+            long start = cellDao.getCellIdByPosition(sudoku,startCell);
+            long end = cellDao.getCellIdByPosition(sudoku, endCell);
+
+            Arrow arrow = new Arrow();
+            arrow.sudokuId = sudokuId;
+            arrow.start_cell = start;
+            arrow.end_cell = end;
+
+            arrowDao.Create(arrow);
+            sudoku.Arrow1.Add(arrow);
+            sudokuDao.Update(sudoku);
+
+            foreach ((int, int) a in cells)
+            {
+                Cell cell = cellDao.getCellByPosition(sudoku, a);
+                cell.Arrow2.Add(arrow);
+                cellDao.Update(cell);
+
+            }
+
+            return arrow.arrowId;
+        }
+
+        private List<(int,int)> cellsToTuple(List<Cell> cells)
+        {
+            List<(int, int)> ps = new List<(int, int)>();
+
+            foreach (Cell c in cells) {
+                ps.Add(((int) c.row_index,(int) c.col_index));
+            }
+
+            return ps;
+        }
+
+        public List<ArrowDto> getSudokuArrows(long sudokuId)
+        {
+            Sudoku sudoku = sudokuDao.Find(sudokuId);
+            List<Arrow> arrows = sudoku.Arrow1.ToList();
+            List<ArrowDto> arrowDtos = new List<ArrowDto>();
+
+            foreach (Arrow a in arrows) {
+                ArrowDto arrowDto = new ArrowDto(sudokuId,
+                    ((int) cellDao.Find(a.start_cell).row_index, (int)cellDao.Find(a.start_cell).col_index),
+                    ((int) cellDao.Find(a.end_cell).row_index, (int)cellDao.Find(a.end_cell).col_index),
+                    cellsToTuple(a.Cell2.ToList()));
+                arrowDtos.Add(arrowDto);
+            
+            }
+            return arrowDtos;
         }
     }
 }

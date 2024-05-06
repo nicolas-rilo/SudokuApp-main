@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Es.Udc.DotNet.SudokuApp.Model.ArrowDao;
 using Es.Udc.DotNet.SudokuApp.Model.CellDao;
 using Es.Udc.DotNet.SudokuApp.Model.ParticipantDao;
 using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
@@ -54,6 +55,9 @@ namespace Es.Udc.DotNet.SudokuApp.Test
 
             kernel.Bind<IParticipantDao>()
                 .To<ParticipantDaoEntityFramework>();
+
+            kernel.Bind<IArrowDao>()
+                .To<ArrowDaoEntityFramework>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["sudokuApp"].ConnectionString; 

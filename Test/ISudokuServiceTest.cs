@@ -165,5 +165,50 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             }
         }
 
+        [TestMethod]
+
+        public void CreateArrow()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                long usrId = userService.RegisterUser(userName, clearPassword,
+                    new UserDetails(firstName, lastName, email, idiom, country, true));
+
+                SudokuDto sudokuDto = new SudokuDto(usrId, "sudoku1", "no rules", "easy", true, false,
+                    false, false, false, matriz1, matrizSolution);
+
+                long sudokuId = sudokuService.uploadSudoku(sudokuDto);
+
+                List<(int, int)> ps = new List<(int, int)>();
+
+                ps.Add((1, 2));
+                ps.Add((1, 3));
+                ps.Add((1, 4));
+
+                sudokuService.createArrow(sudokuId, (1, 1), (1, 5), ps);
+                sudokuService.createArrow(sudokuId, (9, 1), (9, 9), ps);
+
+
+                List<ArrowDto> arrowDtos = sudokuService.getSudokuArrows(sudokuId);
+
+                Assert.AreEqual(arrowDtos[0].startCell, (1, 1));
+                Assert.AreEqual(arrowDtos[0].endCell, (1, 5));
+
+                Assert.AreEqual(arrowDtos[0].cells[0], (1, 2));
+                Assert.AreEqual(arrowDtos[0].cells[1], (1, 3));
+
+                Assert.AreEqual(arrowDtos[1].startCell, (9, 1));
+                Assert.AreEqual(arrowDtos[1].endCell, (9, 9));
+
+
+
+
+
+
+
+            }
+        }
+
+
     }
 }

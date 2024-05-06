@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,37 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
         public void updateCellsSolution(Sudoku sudoku, int[,] solution)
         {
             throw new NotImplementedException();
+        }
+
+        public long getCellIdByPosition(Sudoku sudoku, (int,int) pos)
+        {
+            List<Cell> cells = sudoku.Cell1.ToList();
+            int absolutePosition = 0;
+
+            if (pos.Item2-1 != 0) {
+                absolutePosition = (pos.Item2-1) * 9;
+
+            }
+            absolutePosition += pos.Item1-1;
+
+
+            return cells[absolutePosition].cellId;
+        }
+
+        public Cell getCellByPosition(Sudoku sudoku, (int, int) pos)
+        {
+            List<Cell> cells = sudoku.Cell1.ToList();
+            int absolutePosition = 0;
+
+            if (pos.Item2 - 1 != 0)
+            {
+                absolutePosition = (pos.Item2 - 1) * 9;
+
+            }
+            absolutePosition += pos.Item1 - 1;
+
+
+            return cells[absolutePosition];
         }
     }
 }

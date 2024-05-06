@@ -20,6 +20,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
         void updateCellsPuzzle(Sudoku sudoku, int[,] puzzle);
         void updateCellsSolution(Sudoku sudoku, int[,] solution);
 
+        long getCellIdByPosition(Sudoku sudoku, (int,int) pos);
+
+        Cell getCellByPosition(Sudoku sudoku, (int, int) pos);
 
     }
 }

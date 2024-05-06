@@ -62,6 +62,8 @@
     <Compile Include="Arrow.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="ArrowDao\ArrowDaoEntityFramework.cs" />
+    <Compile Include="ArrowDao\IArrowDao.cs" />
     <Compile Include="Cell.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
@@ -101,6 +103,7 @@
     </Compile>
     <Compile Include="SudokuDao\ISudokuDao.cs" />
     <Compile Include="SudokuDao\SudokuDaoEntityFramework.cs" />
+    <Compile Include="SudokuService\ArrowDto.cs" />
     <Compile Include="SudokuService\ISudokuService.cs" />
     <Compile Include="SudokuService\SudokuDto.cs" />
     <Compile Include="SudokuService\SudokuService.cs" />
