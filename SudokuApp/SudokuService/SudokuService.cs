@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.SudokuApp.Model.ArrowDao;
 using Es.Udc.DotNet.SudokuApp.Model.CellDao;
+using Es.Udc.DotNet.SudokuApp.Model.KillerDao;
 using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
@@ -25,6 +26,8 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         public IReviewDao reviewDao { private get; set; }
         [Inject]
         public IArrowDao arrowDao { private get; set; }
+        [Inject]
+        public IKillerBoxDao killerDao { private get; set; }
 
         public List<SudokuDto> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
         {
@@ -187,6 +190,44 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             
             }
             return arrowDtos;
+        }
+
+        public long createKillerBox(long sudokuId, int value, List<(int, int)> cells)
+        {
+            Sudoku sudoku = sudokuDao.Find(sudokuId);
+
+            Killer_box killer_Box = new Killer_box();
+            killer_Box.sudokuId = sudokuId;
+            killer_Box.killer_value = value;
+
+            killerDao.Create(killer_Box);
+            sudoku.Killer_box.Add(killer_Box);
+            sudokuDao.Update(sudoku);
+
+
+            foreach ((int, int) a in cells)
+            {
+                Cell cell = cellDao.getCellByPosition(sudoku, a);
+                cell.Killer_box.Add(killer_Box);
+                cellDao.Update(cell);
+
+            }
+            return killer_Box.killerId;
+        }
+
+        public List<KillerBoxDto> getSudokuKillerBox(long sudokuId)
+        {
+            Sudoku sudoku = sudokuDao.Find(sudokuId);
+            List<Killer_box> killer_Boxes = sudoku.Killer_box.ToList();
+            List<KillerBoxDto> killerBoxDtos = new List<KillerBoxDto>();
+
+            foreach (Killer_box k in killer_Boxes)
+            {
+                KillerBoxDto killerBoxDto = new KillerBoxDto(sudokuId,(int)k.killer_value,cellsToTuple(k.Cell.ToList()));
+                killerBoxDtos.Add(killerBoxDto);
+
+            }
+            return killerBoxDtos;
         }
     }
 }

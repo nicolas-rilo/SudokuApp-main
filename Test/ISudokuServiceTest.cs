@@ -200,15 +200,43 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                 Assert.AreEqual(arrowDtos[1].startCell, (9, 1));
                 Assert.AreEqual(arrowDtos[1].endCell, (9, 9));
 
+            }
+        }
 
 
+        [TestMethod]
 
+        public void CreateKillerBox()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                long usrId = userService.RegisterUser(userName, clearPassword,
+                        new UserDetails(firstName, lastName, email, idiom, country, true));
 
+                SudokuDto sudokuDto = new SudokuDto(usrId, "sudoku1", "no rules", "easy", true, false,
+                    false, false, false, matriz1, matrizSolution);
+
+                long sudokuId = sudokuService.uploadSudoku(sudokuDto);
+
+                List<(int, int)> ps = new List<(int, int)>();
+
+                ps.Add((1, 2));
+                ps.Add((2, 2));
+                ps.Add((1, 3));
+                ps.Add((2, 3));
+                ps.Add((1, 4));
+
+                sudokuService.createKillerBox(sudokuId,15,ps);
+
+                List<KillerBoxDto> killerBoxDtos = sudokuService.getSudokuKillerBox(sudokuId);
+
+                Assert.AreEqual(killerBoxDtos[0].value, 15);
+                Assert.AreEqual(killerBoxDtos[0].cells[0],(1,2));
+                Assert.AreEqual(killerBoxDtos[0].cells[1], (2, 2));
 
 
             }
         }
-
 
     }
 }

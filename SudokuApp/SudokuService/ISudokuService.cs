@@ -35,5 +35,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         long createArrow(long sudokuId, (int,int) startCell, (int, int) endCell, List<(int,int)> cells);
 
         List<ArrowDto> getSudokuArrows(long sudokuId);
+
+        long createKillerBox(long sudokuId, int value, List<(int, int)> cells);
+
+        List<KillerBoxDto> getSudokuKillerBox(long sudokuId);
     }
 }

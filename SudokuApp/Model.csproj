@@ -69,6 +69,8 @@
     </Compile>
     <Compile Include="CellDao\CellDaoEntityFramework.cs" />
     <Compile Include="CellDao\ICellDao.cs" />
+    <Compile Include="KillerDao\IKillerBoxDao.cs" />
+    <Compile Include="KillerDao\KillerBoxDaoEntityFramework.cs" />
     <Compile Include="Killer_box.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
@@ -105,6 +107,7 @@
     <Compile Include="SudokuDao\SudokuDaoEntityFramework.cs" />
     <Compile Include="SudokuService\ArrowDto.cs" />
     <Compile Include="SudokuService\ISudokuService.cs" />
+    <Compile Include="SudokuService\KillerBoxDto.cs" />
     <Compile Include="SudokuService\SudokuDto.cs" />
     <Compile Include="SudokuService\SudokuService.cs" />
     <Compile Include="Thermo.cs">

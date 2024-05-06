@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Es.Udc.DotNet.SudokuApp.Model.ArrowDao;
 using Es.Udc.DotNet.SudokuApp.Model.CellDao;
+using Es.Udc.DotNet.SudokuApp.Model.KillerDao;
 using Es.Udc.DotNet.SudokuApp.Model.ParticipantDao;
 using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
@@ -58,6 +59,8 @@ namespace Es.Udc.DotNet.SudokuApp.Test
 
             kernel.Bind<IArrowDao>()
                 .To<ArrowDaoEntityFramework>();
+            kernel.Bind<IKillerBoxDao>()
+                .To<KillerBoxDaoEntityFramework>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["sudokuApp"].ConnectionString; 
