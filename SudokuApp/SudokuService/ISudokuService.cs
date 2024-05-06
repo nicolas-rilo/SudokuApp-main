@@ -39,5 +39,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         long createKillerBox(long sudokuId, int value, List<(int, int)> cells);
 
         List<KillerBoxDto> getSudokuKillerBox(long sudokuId);
+
+        long createThermo(long sudokuId, (int, int) startCell, (int, int) endCell, List<(int, int)> cells);
+
+        List<ThermoDto> getSudokuThermos(long sudokuId);
     }
 }

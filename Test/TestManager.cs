@@ -12,6 +12,7 @@ using Es.Udc.DotNet.SudokuApp.Model.ParticipantDao;
 using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuService;
+using Es.Udc.DotNet.SudokuApp.Model.ThermoDao;
 using Es.Udc.DotNet.SudokuApp.Model.TournamentDao;
 using Es.Udc.DotNet.SudokuApp.Model.TournamentService;
 using Es.Udc.DotNet.SudokuApp.Model.UserService;
@@ -61,6 +62,8 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                 .To<ArrowDaoEntityFramework>();
             kernel.Bind<IKillerBoxDao>()
                 .To<KillerBoxDaoEntityFramework>();
+            kernel.Bind<IThermoDao>()
+                .To<ThermoDaoEntityFramework>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["sudokuApp"].ConnectionString; 

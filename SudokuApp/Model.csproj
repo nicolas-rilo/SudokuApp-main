@@ -110,9 +110,12 @@
     <Compile Include="SudokuService\KillerBoxDto.cs" />
     <Compile Include="SudokuService\SudokuDto.cs" />
     <Compile Include="SudokuService\SudokuService.cs" />
+    <Compile Include="SudokuService\ThermoDto.cs" />
     <Compile Include="Thermo.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="ThermoDao\IThermoDao.cs" />
+    <Compile Include="ThermoDao\ThermoDaoEntityFramework.cs" />
     <Compile Include="Tournament.cs">
       <DependentUpon>SudokuApp.tt</DependentUpon>
     </Compile>

@@ -9,6 +9,7 @@ using Es.Udc.DotNet.SudokuApp.Model.CellDao;
 using Es.Udc.DotNet.SudokuApp.Model.KillerDao;
 using Es.Udc.DotNet.SudokuApp.Model.ReviewDao;
 using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
+using Es.Udc.DotNet.SudokuApp.Model.ThermoDao;
 using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
 using Ninject;
 
@@ -28,6 +29,8 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         public IArrowDao arrowDao { private get; set; }
         [Inject]
         public IKillerBoxDao killerDao { private get; set; }
+        [Inject]
+        public IThermoDao thermoDao { private get; set; }
 
         public List<SudokuDto> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
         {
@@ -228,6 +231,50 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
             }
             return killerBoxDtos;
+        }
+
+        public long createThermo(long sudokuId, (int, int) startCell, (int, int) endCell, List<(int, int)> cells)
+        {
+            Sudoku sudoku = sudokuDao.Find(sudokuId);
+            long start = cellDao.getCellIdByPosition(sudoku, startCell);
+            long end = cellDao.getCellIdByPosition(sudoku, endCell);
+
+            Thermo thermo = new Thermo();
+            thermo.sudokuId = sudokuId;
+            thermo.start_cell = start;
+            thermo.end_cell = end;
+
+            thermoDao.Create(thermo);
+            sudoku.Thermo.Add(thermo);
+            sudokuDao.Update(sudoku);
+
+            foreach ((int, int) a in cells)
+            {
+                Cell cell = cellDao.getCellByPosition(sudoku, a);
+                cell.Thermo2.Add(thermo);
+                cellDao.Update(cell);
+
+            }
+
+            return thermo.thermoId;
+        }
+
+        public List<ThermoDto> getSudokuThermos(long sudokuId)
+        {
+            Sudoku sudoku = sudokuDao.Find(sudokuId);
+            List<Thermo> thermos = sudoku.Thermo.ToList();
+            List<ThermoDto> thermoDtos = new List<ThermoDto>();
+
+            foreach (Thermo t in thermos)
+            {
+                ThermoDto thermoDto = new ThermoDto(sudokuId,
+                    ((int)cellDao.Find(t.start_cell).row_index, (int)cellDao.Find(t.start_cell).col_index),
+                    ((int)cellDao.Find(t.end_cell).row_index, (int)cellDao.Find(t.end_cell).col_index),
+                    cellsToTuple(t.Cell2.ToList()));
+                thermoDtos.Add(thermoDto);
+
+            }
+            return thermoDtos;
         }
     }
 }
