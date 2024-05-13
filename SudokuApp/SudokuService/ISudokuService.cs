@@ -43,5 +43,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         long createThermo(long sudokuId, (int, int) startCell, (int, int) endCell, List<(int, int)> cells);
 
         List<ThermoDto> getSudokuThermos(long sudokuId);
+
+        SudokuDto generateSudoku(int dificulty);
     }
 }

@@ -28,3 +28,5 @@ C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\EntityFramework
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Ninject.xml
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Ninject.Extensions.Interception.xml
 C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\SudokuGame.dll
+C:\Users\nicol\OneDrive\Escritorio\SudokuApp-main\Test\bin\Debug\SudokuGame.pdb

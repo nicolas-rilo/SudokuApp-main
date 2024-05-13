@@ -12,6 +12,7 @@ using Es.Udc.DotNet.SudokuApp.Model.SudokuDao;
 using Es.Udc.DotNet.SudokuApp.Model.ThermoDao;
 using Es.Udc.DotNet.SudokuApp.ModelUsersDao;
 using Ninject;
+using SudokuGame;
 
 namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 {
@@ -275,6 +276,54 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
             }
             return thermoDtos;
+        }
+
+        private int[,] stringToIntArray(string array) {
+            int[,] result= new int[9, 9];
+            string array2 =new string( array.ToCharArray().Where(c => !Char.IsWhiteSpace(c)).ToArray());
+
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) 
+                {
+                    int pos = j;
+                    if (i > 0)
+                    {
+                        pos += i * 9;
+                    }
+                    result[i, j] = ((int) array2[pos])-48;
+                
+                
+                }
+            
+            }
+
+
+            return result;
+        }
+
+        public SudokuDto generateSudoku(int dificulty)
+        {
+            String dificultyDto = null;
+            int[,] solution = null ;
+            int[,] puzzle = null;
+
+            SudokuGenerator sudokuGenerator = new SudokuGenerator(gridsPerLevel: 1);
+            sudokuGenerator.ExecuteAll();
+
+            if (dificulty == 0) dificultyDto = "Easy";
+            if (dificulty == 1) dificultyDto = "Medium";
+            if (dificulty == 2) dificultyDto = "Hard";
+
+
+            SudokuSolver sudokuSolver = new SudokuSolver(sudokuGenerator.getSudoku(dificulty));
+
+            solution = stringToIntArray(sudokuSolver.Execute(displaySolution: false, displayGrid: false));
+            puzzle = stringToIntArray(sudokuGenerator.getSudoku(dificulty));
+
+
+            SudokuDto sudokuDto = new SudokuDto(0, "Generates", "no rules", dificultyDto, true, false, false,
+                                    false, false, puzzle, solution);
+            return sudokuDto;
         }
     }
 }

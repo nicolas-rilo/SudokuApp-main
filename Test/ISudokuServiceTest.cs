@@ -276,5 +276,39 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             }
         }
 
+
+
+        [TestMethod]
+
+        public void GenerateSudoku()
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                SudokuDto generated = sudokuService.generateSudoku(0);
+
+                Assert.AreEqual(generated.dificulty,"Easy");
+
+               // printMatrix(generated.puzzle);
+               // printMatrix(generated.solution);
+
+
+            }
+        }
+
+        /*private void printMatrix(int[,] arr) {
+
+            int rowLength = arr.GetLength(0);
+            int colLength = arr.GetLength(1);
+
+            for (int i = 0; i < rowLength; i++)
+            {
+                for (int j = 0; j < colLength; j++)
+                {
+                    Console.Write(string.Format("{0} ", arr[i, j]));
+                }
+                Console.Write(Environment.NewLine + Environment.NewLine);
+            }
+        }*/
+
     }
 }
