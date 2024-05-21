@@ -25,10 +25,13 @@
                             <asp:HyperLink  ID="lnkTournament" runat="server" NavigateUrl="~/Pages/Home.aspx"
                              meta:resourcekey="lnkTournament"></asp:HyperLink>
 
-                            <asp:HyperLink style="float:right" ID="lnkAuthentication" runat="server" NavigateUrl="~/Pages/Home.aspx"
+                            <asp:HyperLink style="float:right" ID="lnkAuthentication" runat="server" NavigateUrl="~/Pages/User/LogIn.aspx"
                              meta:resourcekey="lnkAuthentication"></asp:HyperLink>
 
-                            <asp:HyperLink style="float:right" ID="lnkRegister" runat="server" NavigateUrl="~/Pages/Home.aspx"
+                            <asp:HyperLink style="float:right" ID="lnkLogout" runat="server" NavigateUrl="~/Pages/User/Logout.aspx"
+                             meta:resourcekey="lnkLogout"></asp:HyperLink>
+
+                            <asp:HyperLink style="float:right" ID="lnkRegister" runat="server" NavigateUrl="~/Pages/User/Register.aspx"
                              meta:resourcekey="lnkRegister"></asp:HyperLink>
 
                             <asp:HyperLink style="float:right" ID="lnkProfile" runat="server" NavigateUrl="~/Pages/Home.aspx"

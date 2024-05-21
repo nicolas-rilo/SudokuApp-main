@@ -11,6 +11,7 @@ using Es.Udc.DotNet.SudokuApp.Web.HTTP.View;
 using System.Web.Security;
 using Es.Udc.DotNet.SudokuApp.Model.UsuarioDao;
 using Es.Udc.DotNet.SudokuApp.Web.HTTP.Util;
+using Es.Udc.DotNet.SudokuApp.Model;
 
 namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
 {
@@ -209,7 +210,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns></returns>
-        public static UserDetails FindUserProfileDetails(HttpContext context)
+        public static UserDetails FindUserDetails(HttpContext context)
         {
             UserSession userSession =
                 (UserSession)context.Session[USER_SESSION_ATTRIBUTE];

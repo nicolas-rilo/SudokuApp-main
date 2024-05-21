@@ -20,6 +20,8 @@ namespace Es.Udc.DotNet.SudokuApp.Web
             {
                 if (lnkProfile != null)
                     lnkProfile.Visible = false;
+                if (lnkLogout != null)
+                    lnkLogout.Visible = false;
             }
             else
             {
