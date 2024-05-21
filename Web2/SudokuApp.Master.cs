@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System;
 using System.Collections.Generic;
+using Es.Udc.DotNet.SudokuApp.Web.HTTP.Session;
 
 namespace Es.Udc.DotNet.SudokuApp.Web
 {
@@ -15,7 +16,22 @@ namespace Es.Udc.DotNet.SudokuApp.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!SessionManager.IsUserAuthenticated(Context))
+            {
+                if (lnkProfile != null)
+                    lnkProfile.Visible = false;
+            }
+            else
+            {
+                if (lnkRegister != null)
+                    lnkRegister.Visible = false;
+                if (lnkAuthentication != null)
+                    lnkAuthentication.Visible = false;
+            }
 
+        
+        
+        
         }
     }
 }
