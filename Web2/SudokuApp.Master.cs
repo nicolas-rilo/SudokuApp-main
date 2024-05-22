@@ -30,10 +30,6 @@ namespace Es.Udc.DotNet.SudokuApp.Web
                 if (lnkAuthentication != null)
                     lnkAuthentication.Visible = false;
             }
-
-        
-        
-        
         }
     }
 }

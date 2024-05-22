@@ -3,11 +3,15 @@
 <!DOCTYPE html>
 
 <html>
-<head id="head1" runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SudokuApp</title>
-    <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" />
-</head>
+<asp:ContentPlaceHolder ID="Head" runat="server">
+
+    <head id="head1" runat="server">
+        <title>SudokuApp</title>
+         <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" />
+
+    </head>
+</asp:ContentPlaceHolder>
+
 <body>
     <div id="window">
         <div id="menuLinks">
@@ -16,7 +20,7 @@
                             <asp:HyperLink ID="lnkMainPage" runat="server" NavigateUrl="~/Pages/Home.aspx"
                              meta:resourcekey="lnkMainPage"></asp:HyperLink>
 
-                            <asp:HyperLink ID="lnkUploadSudoku" runat="server" NavigateUrl="~/Pages/Home.aspx"
+                            <asp:HyperLink ID="lnkUploadSudoku" runat="server" NavigateUrl="~/Pages/Sudoku/UploadSudoku.aspx"
                              meta:resourcekey="lnkUploadSudoku"></asp:HyperLink>
 
                             <asp:HyperLink ID="lnkRandomSudoku" runat="server" NavigateUrl="~/Pages/Home.aspx"

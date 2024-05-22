@@ -1,9 +1,4 @@
-﻿body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#menuLinks {
+﻿#menuLinks {
     overflow: hidden;
     background-color: #333;
 }
@@ -23,3 +18,5 @@
             background-color: #04AA6D;
             color: white;
         }
+
+
