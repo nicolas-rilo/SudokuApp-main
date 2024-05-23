@@ -1,4 +1,9 @@
-﻿#menuLinks {
+﻿body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#menuLinks {
     overflow: hidden;
     background-color: #333;
 }
@@ -11,12 +16,48 @@
         text-decoration: none;
         font-size: 17px;
     }
+
         #menuLinks a:hover {
             background-color: #111;
         }
+
         .topnav a.active {
             background-color: #04AA6D;
             color: white;
         }
 
+.prueba {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.cell {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
 
+}
+table {
+    border-collapse: collapse;
+    border: 5px solid #000;   
+}
+
+table tr:nth-child(3n) td,
+table tr:nth-child(3n+3) td {
+    border-bottom: 3px solid #000;
+}
+
+table td:nth-child(3n) {
+    border-right: 3px solid #000;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input {
+    outline: none;
+}

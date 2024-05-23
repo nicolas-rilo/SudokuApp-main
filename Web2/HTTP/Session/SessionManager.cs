@@ -34,7 +34,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
             set { userService = value; }
         }
 
-        public ITournamentService TournamentService 
+        public ITournamentService TournamentService
         {
             set { tournamenService = value; }
         }
@@ -343,6 +343,17 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
             { // Incorrect loginName or encryptedPassword
                 return;
             }
+        }
+
+        public static void uploadSudoku (HttpContext context, string name,string rules, string dificulty
+            ,bool normal,bool killer,bool thermal, bool arrow, bool custom, int[,] puzzle, int[,] solution){
+            UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+
+
+
+            SudokuDto sudokuDto = new SudokuDto(userSession.UserProfileId,name,rules,dificulty,
+                normal,killer,thermal,arrow,custom,puzzle,solution);
+            sudokuService.uploadSudoku(sudokuDto);
         }
     }
 }

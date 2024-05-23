@@ -7,7 +7,7 @@
 
     <head id="head1" runat="server">
         <title>SudokuApp</title>
-         <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" />
+         <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" asp-append-version="true" />
 
     </head>
 </asp:ContentPlaceHolder>

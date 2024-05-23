@@ -220,8 +220,15 @@
   <ItemGroup>
     <Content Include="Pages\User\App_LocalResources\LogIn.aspx.es.resx" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Pages\Sudoku\App_LocalResources\" />
+    <Content Include="Pages\Sudoku\App_LocalResources\UploadSudoku.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Sudoku\App_LocalResources\UploadSudoku.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Sudoku\App_LocalResources\UploadSudoku.aspx.gl.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
