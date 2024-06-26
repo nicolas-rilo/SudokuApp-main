@@ -23,7 +23,7 @@
                             <asp:HyperLink ID="lnkUploadSudoku" runat="server" NavigateUrl="~/Pages/Sudoku/UploadSudoku.aspx"
                              meta:resourcekey="lnkUploadSudoku"></asp:HyperLink>
 
-                            <asp:HyperLink ID="lnkRandomSudoku" runat="server" NavigateUrl="~/Pages/Home.aspx"
+                            <asp:HyperLink ID="lnkRandomSudoku" runat="server" NavigateUrl="~/Pages/Sudoku/SelectSudokuDificulty.aspx"
                              meta:resourcekey="lnkRandomSudoku"></asp:HyperLink>
 
                             <asp:HyperLink  ID="lnkTournament" runat="server" NavigateUrl="~/Pages/Home.aspx"

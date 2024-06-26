@@ -32,7 +32,6 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
 
         }
 
-
         protected void BtnRegisterClick(object sender, EventArgs e)
         {
             if (Page.IsValid)

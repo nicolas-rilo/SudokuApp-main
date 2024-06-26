@@ -355,5 +355,9 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
                 normal,killer,thermal,arrow,custom,puzzle,solution);
             sudokuService.uploadSudoku(sudokuDto);
         }
+
+        public static SudokuDto generateSudoku(HttpContext context, int dificulty) {
+            return sudokuService.generateSudoku(dificulty);
+        }
     }
 }

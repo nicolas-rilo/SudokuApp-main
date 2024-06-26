@@ -24,8 +24,16 @@
             <div class="checkbox">
                 <asp:CheckBox ID="checkCustom" runat="server" TextAlign="Left" meta:resourcekey="checkCustom" />
             </div>
+            
+            <div class="button">
+                <asp:Button ID="btnSwitch" runat="server" meta:resourcekey="btnSwitch" OnClick="switchTable" />
+            </div>
+            <div class="button">
+                <asp:Button ID="btnSwitch2" runat="server" meta:resourcekey="btnSwitch2" OnClick="switchTable" />
+            </div>
 
             <asp:Table id="Table1" Runat="server"/>
+            <asp:Table id="Table2" Runat="server"/>
 
             <div class="button">
                 <asp:Button ID="btnUpload" runat="server" meta:resourcekey="btnUpload" OnClick="uploadSudoku" />

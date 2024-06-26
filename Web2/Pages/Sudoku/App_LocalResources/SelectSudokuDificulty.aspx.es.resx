@@ -117,31 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnSwitch.Text" xml:space="preserve">
-    <value>Solucion</value>
+  <data name="btnEasy.Text" xml:space="preserve">
+    <value>Facil</value>
   </data>
-  <data name="btnSwitch2.Text" xml:space="preserve">
-    <value>Puzzle</value>
+  <data name="btnHard.Text" xml:space="preserve">
+    <value>Dificil</value>
   </data>
-  <data name="btnUpload.Text" xml:space="preserve">
-    <value>Subir</value>
-  </data>
-  <data name="checkArrow.Text" xml:space="preserve">
-    <value>Arrow</value>
-  </data>
-  <data name="checkCustom.Text" xml:space="preserve">
-    <value>Custom</value>
-  </data>
-  <data name="checkKiller.Text" xml:space="preserve">
-    <value>Killer</value>
-  </data>
-  <data name="checkNormal.Text" xml:space="preserve">
-    <value>Clasico</value>
-  </data>
-  <data name="checkThermal.Text" xml:space="preserve">
-    <value>Thermal</value>
+  <data name="btnMedium.Text" xml:space="preserve">
+    <value>Medio</value>
   </data>
   <data name="lblExplanation.Text" xml:space="preserve">
-    <value>Selecciona el tipo de sudoku:</value>
+    <value>Selecciona dificultad del sudoku:</value>
   </data>
 </root>
