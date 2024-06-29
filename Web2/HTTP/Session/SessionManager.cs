@@ -359,5 +359,11 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
         public static SudokuDto generateSudoku(HttpContext context, int dificulty) {
             return sudokuService.generateSudoku(dificulty);
         }
+
+        public static List<SudokuDto> findByFilter(HttpContext context,string name, string dificulty,bool killer, bool thermal
+            ,bool arrow, bool custom, int start, int size) {
+
+            return sudokuService.findByFilter(name, dificulty,killer,thermal,arrow,custom,start,size);
+        }
     }
 }

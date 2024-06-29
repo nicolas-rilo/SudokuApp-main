@@ -15,19 +15,38 @@
             <br />
             <br />
             <br />
-            <asp:Table id="Table1" 
-                GridLines="Both" 
-                HorizontalAlign="Center" 
-                Font-Names="Verdana" 
-                Font-Size="8pt" 
-                CellPadding="15" 
-                CellSpacing="0" 
-                Runat="server"/>
-
             <div class="button">
-
-
+                <asp:Button ID="btnNormal" runat="server" meta:resourcekey="btnNormal" OnClick="resultNormal" />
             </div>
+            <div class="button">
+                <asp:Button ID="btnCustom" runat="server" meta:resourcekey="btnCustom" OnClick="resultCustom" />
+            </div>
+            <asp:Repeater id="Repeater1" runat="server">
+              <HeaderTemplate>
+                 <table border="1">
+                    <tr>
+                       <td><b>Name</b></td>
+                       <td><b>Rules</b></td>
+                       <td><b>Dificulty</b></td>
+                    </tr>
+              </HeaderTemplate>
+
+
+              <ItemTemplate>
+                 <tr>
+                    <td> <%# DataBinder.Eval(Container.DataItem, "name") %> </td>
+                    <td> <%# DataBinder.Eval(Container.DataItem, "rules") %> </td>
+                    <td> <%# DataBinder.Eval(Container.DataItem, "dificulty") %> </td>
+
+                 </tr>
+              </ItemTemplate>
+             
+              <FooterTemplate>
+                 </table>
+              </FooterTemplate>
+             
+           </asp:Repeater>
+
         </form>
     </div>
 </asp:Content>

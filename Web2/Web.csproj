@@ -263,6 +263,16 @@
   <ItemGroup>
     <Content Include="Pages\Sudoku\App_LocalResources\ResolveSudoku.aspx.gl.resx" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\Home.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\Home.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\App_LocalResources\Home.aspx.resx" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

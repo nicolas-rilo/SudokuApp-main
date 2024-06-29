@@ -39,9 +39,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuDao
 
             result = arrow ? result.Where(i => i.arrow == true) : result;
 
-            result = custom ? result.Where(i => i.custom == true) : result;
+            result = custom ? result.Where(i => i.custom == true) : result.Where(i => i.normal == true);
 
-            return result.Skip(start).Take(size).ToList();
+            return result.OrderBy(p => p.name).Skip(start).Take(size).ToList();
 
         }
 
