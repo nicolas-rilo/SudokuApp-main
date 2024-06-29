@@ -5,10 +5,9 @@ using System.Management.Instrumentation;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using Es.Udc.DotNet.SudokuApp.Model;
-using Es.Udc.DotNet.SudokuApp.Model.Exceptions;
 using Es.Udc.DotNet.SudokuApp.Web.HTTP.Session;
+using Es.Udc.DotNet.ModelUtil.Exceptions;
+using Es.Udc.DotNet.SudokuApp.Model.Exceptions;
 
 namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
 {
@@ -36,7 +35,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
                     Response.Redirect(Response.ApplyAppPathModifier("~/Pages/Home.aspx"));
 
                 }
-                catch (InstanceNotFoundException)
+                catch (ModelUtil.Exceptions.InstanceNotFoundException)
                 {
                     lblLoginError.Visible = true;
                 }

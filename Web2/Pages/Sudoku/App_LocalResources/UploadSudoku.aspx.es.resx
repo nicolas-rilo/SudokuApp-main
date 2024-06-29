@@ -144,4 +144,13 @@
   <data name="lblExplanation.Text" xml:space="preserve">
     <value>Selecciona el tipo de sudoku:</value>
   </data>
+  <data name="lclDificulty.Text" xml:space="preserve">
+    <value>Dificultad</value>
+  </data>
+  <data name="lclSudokuName.Text" xml:space="preserve">
+    <value>Nombre del Sudoku</value>
+  </data>
+  <data name="lclSudokuRules.Text" xml:space="preserve">
+    <value>Reglas</value>
+  </data>
 </root>

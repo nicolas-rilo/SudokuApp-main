@@ -35,6 +35,35 @@
             <asp:Table id="Table1" Runat="server"/>
             <asp:Table id="Table2" Runat="server"/>
 
+            <div class="field">
+                <span class="label">
+                    <asp:Localize ID="lclSudokuName" runat="server" meta:resourcekey="lclSudokuName" /></span><span class="entry">
+                        <asp:TextBox ID="txtSudokuName" runat="server" Width="100px" Columns="16"
+                            meta:resourcekey="txtSudokuNameResource"></asp:TextBox>
+            </div>
+            <div class="field">
+                <span class="label">
+                    <asp:Localize ID="lclSudokuRules" runat="server" meta:resourcekey="lclSudokuRules" /></span><span class="entry">
+                        <asp:TextBox ID="txtSudokuRules" runat="server" Width="100px" Columns="16"
+                            meta:resourcekey="txtSudokuRulesResource"></asp:TextBox>
+            </div>
+
+             <div class="field">
+                <span class="label">
+                    <asp:Localize ID="lclDificulty" runat="server" meta:resourcekey="lclDificulty" /></span><span class="entry">
+
+                    <asp:DropDownList ID="DdDificulty" runat="server">
+
+                        <asp:ListItem Text="Easy" Value="Easy"></asp:ListItem>
+
+                        <asp:ListItem Text="Medium" Value="Medium"></asp:ListItem>
+
+                        <asp:ListItem Text="Hard" Value="Hard"></asp:ListItem>
+
+
+                    </asp:DropDownList>
+            </div>
+
             <div class="button">
                 <asp:Button ID="btnUpload" runat="server" meta:resourcekey="btnUpload" OnClick="uploadSudoku" />
             </div>

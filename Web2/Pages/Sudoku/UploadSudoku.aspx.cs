@@ -83,9 +83,11 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             int[,] puzzle = getValuesFromTable(Table1, "cell");
             int[,] solution = getValuesFromTable(Table2, "cellT2");
 
-
-            SessionManager.uploadSudoku(Context,"prueba","rules","Easy",checkNormal.Checked,checkKiller.Checked,
+            
+            SessionManager.uploadSudoku(Context, txtSudokuName.Text, txtSudokuRules.Text, DdDificulty.SelectedValue, checkNormal.Checked,checkKiller.Checked,
                 checkThermal.Checked,checkArrow.Checked,checkCustom.Checked,puzzle,solution);
+            Response.Redirect(Response.ApplyAppPathModifier("~/Pages/Home.aspx"));
+
         }
 
         protected void switchTable(object sender, EventArgs e) {
