@@ -101,6 +101,8 @@
     <Content Include="Pages\Sudoku\ResolveSudoku.aspx" />
     <Content Include="Pages\Sudoku\SelectSudokuDificulty.aspx" />
     <Content Include="Pages\Sudoku\UploadSudoku.aspx" />
+    <Content Include="Pages\Tournament\CreateTournament.aspx" />
+    <Content Include="Pages\Tournament\SelectTournament.aspx" />
     <Content Include="Pages\User\LogIn.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\Profile.aspx" />
@@ -153,6 +155,20 @@
     </Compile>
     <Compile Include="Pages\Sudoku\UploadSudoku.aspx.designer.cs">
       <DependentUpon>UploadSudoku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Tournament\CreateTournament.aspx.cs">
+      <DependentUpon>CreateTournament.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Tournament\CreateTournament.aspx.designer.cs">
+      <DependentUpon>CreateTournament.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Tournament\SelectTournament.aspx.cs">
+      <DependentUpon>SelectTournament.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Tournament\SelectTournament.aspx.designer.cs">
+      <DependentUpon>SelectTournament.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
@@ -263,7 +279,9 @@
   <ItemGroup>
     <Content Include="Pages\Sudoku\App_LocalResources\ResolveSudoku.aspx.gl.resx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Pages\Tournament\App_LocalResources\SelectTournament.aspx.resx" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\App_LocalResources\Home.aspx.es.resx" />
   </ItemGroup>
@@ -272,6 +290,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\App_LocalResources\Home.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Tournament\App_LocalResources\SelectTournament.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Tournament\App_LocalResources\SelectTournament.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Tournament\App_LocalResources\CreateTournament.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Tournament\App_LocalResources\CreateTournament.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Tournament\App_LocalResources\CreateTournament.aspx.gl.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

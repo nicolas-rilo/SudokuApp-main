@@ -218,5 +218,6 @@ CREATE TABLE Review(
 
 )
 
-
+INSERT INTO Users (userName ,password ,firstName, lastName,email ,admin,idiom ,country)
+VALUES('HOLA','ypeBEsobvcr6wjGzmiPcTaeG7/gUfE5yuYB3ha/uSLs=','ADMIN','ADMIN','admin@admin.es',1,'en','US' )
 GO

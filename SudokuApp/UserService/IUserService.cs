@@ -34,5 +34,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
 
         bool UserExists(string userName);
 
+        bool IsUserAdmin(long usrId);
+
     }
 }

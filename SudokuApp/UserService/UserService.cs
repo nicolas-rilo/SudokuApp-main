@@ -65,7 +65,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
                 usuario.email = userDetails.Email;
                 usuario.idiom = userDetails.idiom;
                 usuario.country = userDetails.country;
-                usuario.admin = userDetails.admin;
+                usuario.admin = false;
 
                 UsersDao.Create(usuario);
 
@@ -76,7 +76,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
         public UserDetails FindUserDetails(long usrId)
         {
             Users userFind = UsersDao.Find(usrId);
-            UserDetails userDetails = new UserDetails (userFind.firstName, userFind.lastName, userFind.email, userFind.idiom, userFind.country,true);
+            UserDetails userDetails = new UserDetails (userFind.firstName, userFind.lastName, userFind.email, userFind.idiom, userFind.country);
             return userDetails;
         }
 
@@ -89,7 +89,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
             user.email = userDetails.Email;
             user.idiom = userDetails.idiom;
             user.country = userDetails.country;
-            user.admin = userDetails.admin;
+            user.admin = user.admin;
 
             UsersDao.Update(user);
         }
@@ -125,5 +125,10 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
             return true;
         }
 
+        public bool IsUserAdmin(long usrId)
+        {
+            Users user = UsersDao.Find(usrId);
+            return (bool)user.admin;
+        }
     }
 }

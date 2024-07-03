@@ -12,7 +12,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ( null == SessionManager.GetUserSession(Context)) {
+            if (!SessionManager.IsUserAuthenticated(Context)) {
                 Response.Redirect(Response.ApplyAppPathModifier("~/Pages/User/LogIn.aspx"));
             }
 

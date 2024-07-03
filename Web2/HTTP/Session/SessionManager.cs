@@ -365,5 +365,15 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
 
             return sudokuService.findByFilter(name, dificulty,killer,thermal,arrow,custom,start,size);
         }
+        public static bool isUserAdmin(HttpContext context) {
+            UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+
+            return userService.IsUserAdmin(userSession.UserProfileId);
+        }
+
+        public static void createTournament(HttpContext context, long sudokuId, DateTime start, DateTime end) {
+
+            tournamenService.createTournament(sudokuId,start,end);
+        }
     }
 }

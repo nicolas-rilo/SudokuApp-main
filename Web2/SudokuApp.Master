@@ -26,7 +26,7 @@
                             <asp:HyperLink ID="lnkRandomSudoku" runat="server" NavigateUrl="~/Pages/Sudoku/SelectSudokuDificulty.aspx"
                              meta:resourcekey="lnkRandomSudoku"></asp:HyperLink>
 
-                            <asp:HyperLink  ID="lnkTournament" runat="server" NavigateUrl="~/Pages/Home.aspx"
+                            <asp:HyperLink  ID="lnkTournament" runat="server" NavigateUrl="~/Pages/Tournament/SelectTournament.aspx"
                              meta:resourcekey="lnkTournament"></asp:HyperLink>
 
                             <asp:HyperLink style="float:right" ID="lnkAuthentication" runat="server" NavigateUrl="~/Pages/User/LogIn.aspx"

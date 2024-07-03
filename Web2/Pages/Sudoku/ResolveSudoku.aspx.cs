@@ -28,6 +28,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                     textBox.CssClass = "cell";
                     textBox.ID = "cell-" + i + "-" + j;
                     textBox.TextMode = TextBoxMode.Number;
+                    textBox.ForeColor = System.Drawing.Color.Gray;
 
 
                     c.Controls.Add(textBox);
@@ -68,6 +69,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                         {
                             textBox.Text = sudokuDto.puzzle[i, j].ToString();
                             textBox.Enabled = false;
+                            textBox.ForeColor = System.Drawing.Color.Black ;
                         }
                         else
                         {

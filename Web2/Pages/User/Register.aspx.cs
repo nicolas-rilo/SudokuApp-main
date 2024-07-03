@@ -39,7 +39,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
                 try
                 {
                     UserDetails userDetails = new UserDetails(txtFirstName.Text,txtLastName.Text,txtEmail.Text,
-                            comboLanguage.SelectedValue,comboCountry.SelectedValue,false);
+                            comboLanguage.SelectedValue,comboCountry.SelectedValue);
                     SessionManager.RegisterUser(Context,txtLogin.Text,txtPassword.Text,userDetails);
 
                     Response.Redirect(Response.ApplyAppPathModifier("~/Pages/Home.aspx"));
