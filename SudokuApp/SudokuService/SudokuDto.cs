@@ -9,6 +9,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
     [Serializable]
     public class SudokuDto
     {
+        public long sudokuId { get; private set; }
         public long userId { get; private set; }
         public string name { get; private set; }
         public string rules { get; private set; }
@@ -21,9 +22,11 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         public int[,] puzzle { get; private set; }
         public int[,] solution { get; private set; }
 
-        public SudokuDto(long userId, string name, string rules, string dificulty, bool nomal,
-            bool killer, bool thermal, bool arrow, bool custom, int[,] puzzle, int[,] solution)
+        public SudokuDto(long sudokuId, long userId, string name, string rules,
+            string dificulty, bool nomal, bool killer, bool thermal, bool arrow, 
+            bool custom, int[,] puzzle, int[,] solution)
         {
+            this.sudokuId = sudokuId;
             this.userId = userId;
             this.name = name;
             this.rules = rules;

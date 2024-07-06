@@ -33,9 +33,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         [Inject]
         public IThermoDao thermoDao { private get; set; }
 
-        public List<SudokuDto> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
+        public List<SudokuDto> findByFilter(string name,  string dificulty, bool normal, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
         {
-            List<Sudoku> sudokus = sudokuDao.findByFilter(name, dificulty, killer, thermal, arrow, custom, start, size);
+            List<Sudoku> sudokus = sudokuDao.findByFilter(name, dificulty, normal, killer, thermal, arrow, custom, start, size);
             List<SudokuDto> sudokuDtos = new List<SudokuDto>();
 
 
@@ -48,7 +48,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
 
         private SudokuDto sudokuToSudokudto (Sudoku sudoku) {
-            return new SudokuDto(sudoku.usrId,sudoku.name,sudoku.rules,sudoku.dificulty, (bool)sudoku.normal, (bool)sudoku.killer,
+            return new SudokuDto(sudoku.sudokuId,sudoku.usrId,sudoku.name,sudoku.rules,sudoku.dificulty, (bool)sudoku.normal, (bool)sudoku.killer,
                 (bool)sudoku.thermal, (bool)sudoku.arrow, (bool)sudoku.custom, cellDao.getSudokuCellPuzzle(sudoku), cellDao.getSudokuCellSolution(sudoku));
         }
 
@@ -321,9 +321,16 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             puzzle = stringToIntArray(sudokuGenerator.getSudoku(dificulty));
 
 
-            SudokuDto sudokuDto = new SudokuDto(0, "Generates", "no rules", dificultyDto, true, false, false,
+            SudokuDto sudokuDto = new SudokuDto(0,0, "Generates", "no rules", dificultyDto, true, false, false,
                                     false, false, puzzle, solution);
             return sudokuDto;
+        }
+
+        public List<SudokuDto> findSudoku(long sudokuId)
+        {
+            List<SudokuDto> sudokuDtos = new List<SudokuDto>();
+            sudokuDtos.Add(sudokuToSudokudto( sudokuDao.Find(sudokuId)));
+            return sudokuDtos;
         }
     }
 }

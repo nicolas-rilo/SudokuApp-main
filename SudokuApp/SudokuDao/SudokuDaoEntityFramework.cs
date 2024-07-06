@@ -16,7 +16,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuDao
         {
         }
 
-        public List<Sudoku> findByFilter(string name, string dificulty, bool killer, bool thermal, bool arrow, bool custom, int start, int size)
+        public List<Sudoku> findByFilter(string name, string dificulty,bool normal ,bool killer, bool thermal, bool arrow, bool custom, int start, int size)
         {
 
             DbSet<Sudoku> sudokus = Context.Set<Sudoku>();
@@ -33,13 +33,15 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuDao
                 result = result.Where(i => i.dificulty == dificulty);
             }
 
+            result = normal ? result.Where(i => i.normal == true) : result;
+
             result =  killer ? result.Where(i => i.killer == true) : result;
 
             result = thermal ? result.Where(i => i.thermal == true) : result;
 
             result = arrow ? result.Where(i => i.arrow == true) : result;
 
-            result = custom ? result.Where(i => i.custom == true) : result.Where(i => i.normal == true);
+            result = custom ? result.Where(i => i.custom == true) : result.Where(i => i == i);
 
             return result.OrderBy(p => p.name).Skip(start).Take(size).ToList();
 

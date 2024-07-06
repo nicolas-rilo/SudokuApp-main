@@ -117,16 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnEdit.Text" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="btnSearch.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="btnSelect.Text" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
   <data name="btnUpload.Text" xml:space="preserve">
     <value>Crear</value>
   </data>
+  <data name="lblFormatError.Text" xml:space="preserve">
+    <value>Formato de data incorrecto</value>
+  </data>
+  <data name="lblNotAfter.Text" xml:space="preserve">
+    <value>A data de fin ten que ser posterior a data de comezo</value>
+  </data>
+  <data name="lblSelectSdk.Text" xml:space="preserve">
+    <value>Porfavor selecciona un sudoku para o torneo</value>
+  </data>
+  <data name="lclDificulty.Text" xml:space="preserve">
+    <value>Dificultade</value>
+  </data>
   <data name="lclEndDateTime.Text" xml:space="preserve">
     <value>Fecha e hora de fin (DD:MM:YYYY HH:MM:SS)</value>
+  </data>
+  <data name="lclFindSudoku.Text" xml:space="preserve">
+    <value>Nome</value>
   </data>
   <data name="lclStartDateTime.Text" xml:space="preserve">
     <value>Fecha e hora de inicio (DD:MM:YYYY HH:MM:SS)</value>
   </data>
   <data name="lclSudokuId.Text" xml:space="preserve">
     <value>Id do Sudoku </value>
+  </data>
+  <data name="lclSudokuType.Text" xml:space="preserve">
+    <value>Tipo</value>
   </data>
 </root>

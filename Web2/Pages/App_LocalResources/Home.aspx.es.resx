@@ -123,4 +123,16 @@
   <data name="btnNormal.Text" xml:space="preserve">
     <value>Normal</value>
   </data>
+  <data name="btnSearch.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="lclDificulty.Text" xml:space="preserve">
+    <value>Dificultad</value>
+  </data>
+  <data name="lclFindSudoku.Text" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="lclSudokuType.Text" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
 </root>

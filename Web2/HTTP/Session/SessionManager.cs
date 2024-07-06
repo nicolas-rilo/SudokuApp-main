@@ -351,7 +351,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
 
 
 
-            SudokuDto sudokuDto = new SudokuDto(userSession.UserProfileId,name,rules,dificulty,
+            SudokuDto sudokuDto = new SudokuDto(0,userSession.UserProfileId,name,rules,dificulty,
                 normal,killer,thermal,arrow,custom,puzzle,solution);
             sudokuService.uploadSudoku(sudokuDto);
         }
@@ -360,10 +360,10 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
             return sudokuService.generateSudoku(dificulty);
         }
 
-        public static List<SudokuDto> findByFilter(HttpContext context,string name, string dificulty,bool killer, bool thermal
+        public static List<SudokuDto> findByFilter(HttpContext context,string name, string dificulty, bool normal, bool killer, bool thermal
             ,bool arrow, bool custom, int start, int size) {
 
-            return sudokuService.findByFilter(name, dificulty,killer,thermal,arrow,custom,start,size);
+            return sudokuService.findByFilter(name, dificulty,normal ,killer,thermal,arrow,custom,start,size);
         }
         public static bool isUserAdmin(HttpContext context) {
             UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
@@ -374,6 +374,10 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
         public static void createTournament(HttpContext context, long sudokuId, DateTime start, DateTime end) {
 
             tournamenService.createTournament(sudokuId,start,end);
+        }
+
+        public static List<SudokuDto> findSudoku(HttpContext context, long sudokuId) {
+            return sudokuService.findSudoku(sudokuId);
         }
     }
 }
