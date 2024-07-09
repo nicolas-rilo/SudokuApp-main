@@ -129,4 +129,7 @@
   <data name="lblExplanation.Text" xml:space="preserve">
     <value>Felicidades</value>
   </data>
+  <data name="lblRules.Text" xml:space="preserve">
+    <value>Reglas: </value>
+  </data>
 </root>

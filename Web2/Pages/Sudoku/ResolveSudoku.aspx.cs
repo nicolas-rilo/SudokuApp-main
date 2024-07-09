@@ -17,6 +17,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             lblExplanation.Visible = false;
             btnAccept.Visible = false;
             Table2.Visible = false;
+            lblSudokuExp.Visible = false;
 
             for (int i = 0; i < 9; i++)
             {
@@ -99,6 +100,10 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                         textBox.Text = sudokuDto.solution[i, j].ToString();
                         textBox.Enabled = false;
                     }
+                }
+                if (sudokuDto.rules != null) {
+                    lblSudokuExp.Text =  sudokuDto.rules;
+                    lblSudokuExp.Visible = true;
                 }
             }
 

@@ -14,6 +14,12 @@
             <span class="entry">
                 <asp:Localize ID="lblExplanation" runat="server" meta:resourcekey="lblExplanation" />
             </span>
+            <span class="entry">
+                <asp:Localize ID="lblRules" runat="server" meta:resourcekey="lblRules" />
+            </span>
+            <span class="entry">
+                <asp:Localize ID="lblSudokuExp" runat="server" meta:resourcekey="lblSudokuExp" />
+            </span>
             <div class="button">
                 <asp:Button ID="btnAccept" runat="server" meta:resourcekey="btnAccept" OnClick="endSudoku"  />
             </div>
