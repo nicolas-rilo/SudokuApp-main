@@ -22,6 +22,12 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages
 
         }
 
+        protected void selectSudoku(object sender, EventArgs e) {
+            Button btn = (Button)sender;
+            Response.Redirect(Response.ApplyAppPathModifier($"~/Pages/Sudoku/ResolveSudoku.aspx?id={btn.CommandArgument}"));
+
+
+        }
         protected void searchSudoku(object sender, EventArgs e)
         {
             String dificulty = DbDificulty.SelectedValue;

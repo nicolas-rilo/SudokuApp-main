@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/SudokuApp.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Home" meta:resourcekey="Page"%>
+﻿<%@ Page Language="C#" MasterPageFile="~/SudokuApp.Master" 
+    EnableEventValidation="false" CodeBehind="Home.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Home" meta:resourcekey="Page" UnobtrusiveValidationMode="None"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"
     runat="server">
@@ -59,6 +60,8 @@
                        <td><b>Name</b></td>
                        <td><b>Rules</b></td>
                        <td><b>Dificulty</b></td>
+                       <td><b>Play</b></td>
+
                     </tr>
               </HeaderTemplate>
 
@@ -68,6 +71,8 @@
                     <td> <%# DataBinder.Eval(Container.DataItem, "name") %> </td>
                     <td> <%# DataBinder.Eval(Container.DataItem, "rules") %> </td>
                     <td> <%# DataBinder.Eval(Container.DataItem, "dificulty") %> </td>
+                    <td> <asp:Button runat="server" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "sudokuId")%>' ID="btnSelect" meta:resourcekey="btnSelect" OnClick="selectSudoku" /> </td>
+
 
                  </tr>
               </ItemTemplate>
@@ -97,6 +102,8 @@
                        <td><b>Name</b></td>
                        <td><b>Rules</b></td>
                        <td><b>Dificulty</b></td>
+                       <td><b>Play</b></td>
+
                     </tr>
               </HeaderTemplate>
 
@@ -106,6 +113,7 @@
                     <td> <%# DataBinder.Eval(Container.DataItem, "name") %> </td>
                     <td> <%# DataBinder.Eval(Container.DataItem, "rules") %> </td>
                     <td> <%# DataBinder.Eval(Container.DataItem, "dificulty") %> </td>
+                    <td> <asp:Button runat="server" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "sudokuId")%>' ID="btnSelect" meta:resourcekey="btnSelect" OnClick="selectSudoku" /> </td>
 
                  </tr>
               </ItemTemplate>

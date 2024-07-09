@@ -126,6 +126,9 @@
   <data name="btnSearch.Text" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="btnSelect.Text" xml:space="preserve">
+    <value>Play</value>
+  </data>
   <data name="lclDificulty.Text" xml:space="preserve">
     <value>Dificulty</value>
   </data>

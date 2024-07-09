@@ -58,8 +58,16 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             }
 
             if (!IsPostBack) {
-                sudokuDto = SessionManager.generateSudoku(Context, Convert.ToInt32(Request.QueryString["dificulty"]));
+                if (Request.QueryString["dificulty"] != null)
+                {
+                    sudokuDto = SessionManager.generateSudoku(Context, Convert.ToInt32(Request.QueryString["dificulty"]));
+                }
+                else {
+                    List<SudokuDto> sudokuDtos = SessionManager.findSudoku(Context, long.Parse(Request.QueryString["id"]));
+                    sudokuDto = sudokuDtos[0];
 
+                }
+                
                 for (int i = 0; i < 9; i++)
                 {
                     for (int j = 0; j < 9; j++)
