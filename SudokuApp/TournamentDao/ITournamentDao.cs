@@ -13,6 +13,8 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentDao
 
         ParticipationDto getRank(Users user, Tournament tournament);
 
+        List<Tournament> getActiveTournaments();
+
         List<ParticipationDto> getRanking(Tournament tournament, int start, int size);
     }
 }

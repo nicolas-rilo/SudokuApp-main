@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,15 +10,32 @@ using Es.Udc.DotNet.SudokuApp.Web.HTTP.Session;
 
 namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
 {
+    //https://www.youtube.com/watch?v=mRZPY2RyGrU&ab_channel=hdeleon.net
     public partial class ResolveSudoku : SpecificCulturePage
     {
+        public static Stopwatch sw;
         SudokuDto sudokuDto;
         protected void Page_Load(object sender, EventArgs e)
         {
             lblExplanation.Visible = false;
             btnAccept.Visible = false;
-            Table2.Visible = false;
+            Table2.Visible = true;
             lblSudokuExp.Visible = false;
+
+            if (SessionManager.IsUserAuthenticated(Context) && Request.QueryString["tournament"] == "true")
+            {
+                try
+                {
+                    SessionManager.getUserPosition(Context, long.Parse(Request.QueryString["tournamentId"]));
+                    Response.Redirect(Response.ApplyAppPathModifier("~/Pages/Home.aspx"));
+
+                }
+                catch (ModelUtil.Exceptions.InstanceNotFoundException) {
+
+
+                }
+
+            }
 
             for (int i = 0; i < 9; i++)
             {
@@ -59,6 +77,8 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             }
 
             if (!IsPostBack) {
+                sw = new Stopwatch();
+                sw.Start();
                 if (Request.QueryString["dificulty"] != null)
                 {
                     sudokuDto = SessionManager.generateSudoku(Context, Convert.ToInt32(Request.QueryString["dificulty"]));
@@ -108,9 +128,37 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             }
 
         }
+        protected void tm1_Tick(object sender, EventArgs e)
+        {
+            long sec = sw.Elapsed.Seconds;
+            long min = sw.Elapsed.Minutes;
+            long hour = sw.Elapsed.Hours;
+
+            if (hour < 10)
+                Label1.Text = "0" + hour;
+            else
+                Label1.Text = hour.ToString();
+
+            Label1.Text += " : ";
+            
+            if (min < 10)
+                Label1.Text += "0" + min;
+            else
+                Label1.Text = min.ToString();
+
+            Label1.Text += " : ";
+
+            if (sec < 10)
+                Label1.Text += "0" + sec;
+            else
+                Label1.Text += sec.ToString();
+            
+        }
 
         protected void validateSolution(object sender, EventArgs e)
         {
+            char[] delimiterChars = {':'};
+
             int count = 0;
             for (int i = 0; i < 9; i++)
             {
@@ -134,6 +182,14 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             if (count == 81) {
                 lblExplanation.Visible = true;
                 btnAccept.Visible = true;
+                sw.Stop();
+                if (Request.QueryString["tournament"] == "true")
+                {
+                    string[] words = Label1.Text.Split(delimiterChars);
+                    TimeSpan timeSpan = new TimeSpan(int.Parse(words[0]), int.Parse(words[1]),int.Parse(words[2]));
+                    
+                    SessionManager.participate(Context,long.Parse (Request.QueryString["tournamentId"]),timeSpan);
+                }
             }
         }
 

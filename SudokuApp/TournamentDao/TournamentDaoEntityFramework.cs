@@ -21,6 +21,18 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentDao
             return tournament.tournamentId;
         }
 
+        public List<Tournament> getActiveTournaments()
+        {
+            DbSet<Tournament> tournaments = Context.Set<Tournament>();
+            var result =
+                (from i in tournaments
+                 where i.finish_time > DateTime.Now
+                 orderby i.finish_time 
+                 select i
+                 );
+            return result.ToList();
+        }
+
         public ParticipationDto getRank(Users user, Tournament tournament)
         {
             DbSet<Participant> participants = Context.Set<Participant>();
@@ -33,18 +45,28 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentDao
                  select new
                  {
                      Time = i.time,
-                     UserId = i.userId,
+                     UserName = i.Users.userName,
+                     userId = i.userId,
                      Rank = (from o in participants
                              where o.time < i.time
                              select o).Count() + 1
                  });
 
             foreach (var a in result) {
-                ParticipationDto participationDto = new ParticipationDto(a.Time,a.UserId,a.Rank);
+                ParticipationDto participationDto = new ParticipationDto(a.Time,a.UserName,a.userId,a.Rank);
                 participationDtos.Add(participationDto);
             }
 
-            return participationDtos.Where(a => a.userId == user.usrId).First();
+
+            try{
+
+                return participationDtos.Where(a => a.userName == user.userName).First();
+
+            }catch (InvalidOperationException) {
+
+                throw new ModelUtil.Exceptions.InstanceNotFoundException(participationDtos,"participationDtos");
+
+            }
         }
 
         public List<ParticipationDto> getRanking(Tournament tournament, int start, int size)
@@ -59,6 +81,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentDao
                  select new
                  {
                      Time = i.time,
+                     UserName = i.Users.userName,
                      UserId = i.userId,
                      Rank = (from o in participants
                              where o.time < i.time
@@ -67,7 +90,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentDao
 
             foreach (var a in result)
             {
-                ParticipationDto participationDto = new ParticipationDto(a.Time, a.UserId, a.Rank);
+                ParticipationDto participationDto = new ParticipationDto(a.Time,a.UserName, a.UserId, a.Rank);
                 participationDtos.Add(participationDto);
             }
 

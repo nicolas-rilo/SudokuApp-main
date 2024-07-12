@@ -117,13 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnCrTour.Text" xml:space="preserve">
-    <value>Create Tournament</value>
-  </data>
-  <data name="btnRanking.Text" xml:space="preserve">
-    <value>Leadborad</value>
-  </data>
-  <data name="btnSelect.Text" xml:space="preserve">
-    <value>Play</value>
+  <data name="lblExp.Text" xml:space="preserve">
+    <value>A tua posicion:</value>
   </data>
 </root>

@@ -17,6 +17,9 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentService
 
         void participateInTournament(long usrId, long tournamentId, TimeSpan time);
 
+        TournamentDto getTournament(long tournamentId);
+
+        List<TournamentDto> getActiveTournaments();
 
         ParticipationDto getUserRank(long usrId, long tournamentId);
 

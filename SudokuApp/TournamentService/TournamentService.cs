@@ -28,9 +28,36 @@ namespace Es.Udc.DotNet.SudokuApp.Model.TournamentService
             return tournamentDao.createTournament(s,start,end);
         }
 
+        public List<TournamentDto> getActiveTournaments()
+        {
+            List<TournamentDto> tournamentDtos = new List<TournamentDto>();
+            List<Tournament> tournaments = tournamentDao.getActiveTournaments();
+
+            foreach (Tournament i in tournaments) {
+                TimeSpan time = (TimeSpan)(i.finish_time - DateTime.Now);
+                
+
+                TournamentDto tournamentDto = new TournamentDto(time.Days,time.Hours,time.Minutes,time.Seconds,i.Participant.Count
+                    ,i.Sudoku.dificulty,i.Sudoku.sudokuId,i.tournamentId);
+                tournamentDtos.Add(tournamentDto);
+            
+            }
+
+            return tournamentDtos;
+        }
+
         public List<ParticipationDto> getRanking(long tournamentId, int start, int size)
         {
             return tournamentDao.getRanking(tournamentDao.Find(tournamentId), start, size);
+        }
+
+        public TournamentDto getTournament(long tournamentId)
+        {
+            Tournament tournament = tournamentDao.Find(tournamentId);
+            TimeSpan time = (TimeSpan)(tournament.finish_time - DateTime.Now);
+
+            return new TournamentDto(time.Days, time.Hours, time.Minutes, time.Seconds, tournament.Participant.Count
+                    , tournament.Sudoku.dificulty, tournament.Sudoku.sudokuId, tournament.tournamentId);
         }
 
         public ParticipationDto getUserRank(long usrId, long tournamentId)

@@ -120,4 +120,10 @@
   <data name="btnCrTour.Text" xml:space="preserve">
     <value>Crear Torneo</value>
   </data>
+  <data name="btnRanking.Text" xml:space="preserve">
+    <value>Resultados</value>
+  </data>
+  <data name="btnSelect.Text" xml:space="preserve">
+    <value>Participar</value>
+  </data>
 </root>

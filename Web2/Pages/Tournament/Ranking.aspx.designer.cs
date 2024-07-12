@@ -11,17 +11,8 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Tournament
 {
 
 
-    public partial class SelectTournament
+    public partial class Ranking
     {
-
-        /// <summary>
-        /// Control btnCrTour.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrTour;
 
         /// <summary>
         /// Control Repeater1.
@@ -31,5 +22,23 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Tournament
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater Repeater1;
+
+        /// <summary>
+        /// Control lblExp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lblExp;
+
+        /// <summary>
+        /// Control Repeater2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeater2;
     }
 }

@@ -1,10 +1,21 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/SudokuApp.Master" 
-    CodeBehind="ResolveSudoku.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku.ResolveSudoku" meta:resourcekey="Page" UnobtrusiveValidationMode="None"%>
+    EnableEventValidation="false"  CodeBehind="ResolveSudoku.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku.ResolveSudoku" meta:resourcekey="Page" UnobtrusiveValidationMode="None"%>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
 
     <div runat="server" id="prueba" class="prueba">
         <form runat="server">
+            <asp:scriptmanager ID="Scriptmanager1" runat="server"></asp:scriptmanager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+                <asp:Label ID="Label1" runat="server" Font-Size="XX-Large"></asp:Label>
+                <asp:Timer ID="tm1" Interval="1000" runat="server" ontick="tm1_Tick" />
+              </ContentTemplate>
+              <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="tm1" EventName="Tick" />
+              </Triggers>
+            </asp:UpdatePanel>
+
             <asp:Table id="Table1" Runat="server"/>
             <asp:Table id="Table2" Runat="server"/>
 

@@ -122,6 +122,7 @@
     <Compile Include="TournamentDao\ITournamentDao.cs" />
     <Compile Include="TournamentDao\ParticipationDto.cs" />
     <Compile Include="TournamentDao\TournamentDaoEntityFramework.cs" />
+    <Compile Include="TournamentDao\TournamentDto.cs" />
     <Compile Include="TournamentService\ITournamentService.cs" />
     <Compile Include="TournamentService\TournamentService.cs" />
     <Compile Include="Users.cs">
