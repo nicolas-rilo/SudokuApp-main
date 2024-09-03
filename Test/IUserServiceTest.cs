@@ -82,7 +82,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             using (TransactionScope scope = new TransactionScope())
             {
                 long userId = userService.RegisterUser(userName, clearPassword,
-                        new UserDetails(firstName, lastName, email, idiom, country,true));
+                        new UserDetails(firstName, lastName, email, idiom, country));
 
                 Users usuario = usersDao.Find(userId);
 
@@ -94,7 +94,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                 Assert.AreEqual(email, usuario.email);
                 Assert.AreEqual(idiom, usuario.idiom);
                 Assert.AreEqual(country, usuario.country);
-                Assert.AreEqual(true, usuario.admin);
+                Assert.AreEqual(false, usuario.admin);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             using (var scope = new TransactionScope())
             {
                 userService.RegisterUser(userName, clearPassword,
-                   new UserDetails(firstName, lastName, email, idiom, country, true));
+                   new UserDetails(firstName, lastName, email, idiom, country));
                 bool existe = userService.UserExists(userName);
                 Assert.IsTrue(existe);
             }
@@ -117,7 +117,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             using (var scope = new TransactionScope())
             {
                 long usrId = userService.RegisterUser(userName, clearPassword,
-                    new UserDetails(firstName, lastName, email, idiom, country, true));
+                    new UserDetails(firstName, lastName, email, idiom, country));
 
                 Users user = usersDao.Find(usrId);
                 LoginResult result = userService.Login(user.userName, clearPassword, false);
@@ -136,11 +136,11 @@ namespace Es.Udc.DotNet.SudokuApp.Test
         {
             using (var scope = new TransactionScope())
             {
-                long usrId = userService.RegisterUser(userName, clearPassword, new UserDetails(firstName, lastName, email, idiom, country,false));
+                long usrId = userService.RegisterUser(userName, clearPassword, new UserDetails(firstName, lastName, email, idiom, country));
 
                 Users usuario = usersDao.Find(usrId);
 
-                userService.UpdateUserProfileDetails(usrId, new UserDetails(firstName1, lastName1, email1, idiom1, country1,true));
+                userService.UpdateUserProfileDetails(usrId, new UserDetails(firstName1, lastName1, email1, idiom1, country1));
 
                 Users usuarioUpdated = usersDao.Find(usrId);
 
@@ -150,7 +150,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
                 Assert.AreEqual(email1, usuarioUpdated.email);
                 Assert.AreEqual(idiom1, usuarioUpdated.idiom);
                 Assert.AreEqual(country1, usuarioUpdated.country);
-                Assert.AreEqual(true, usuarioUpdated.admin);
+                Assert.AreEqual(false, usuarioUpdated.admin);
             }
         }
 
@@ -159,7 +159,7 @@ namespace Es.Udc.DotNet.SudokuApp.Test
         {
             using (var scope = new TransactionScope())
             {
-                long usrId = userService.RegisterUser(userName, clearPassword, new UserDetails(firstName, lastName, email, idiom, country, true));
+                long usrId = userService.RegisterUser(userName, clearPassword, new UserDetails(firstName, lastName, email, idiom, country));
 
                 UserDetails details = userService.FindUserDetails(usrId);
 

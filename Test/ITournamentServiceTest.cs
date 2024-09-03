@@ -115,9 +115,9 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             using (TransactionScope scope = new TransactionScope())
             {
                 long usrId = userService.RegisterUser(userName, clearPassword,
-                    new UserDetails(firstName, lastName, email, idiom, country, true));
+                    new UserDetails(firstName, lastName, email, idiom, country));
 
-                SudokuDto sudokuDto = new SudokuDto(usrId, "sudoku1", "no rules", "easy", true, false,
+                SudokuDto sudokuDto = new SudokuDto(-1,usrId, "sudoku1", "no rules", "easy", true, false,
                     false, false, false, matriz1, matrizSolution);
 
                 long sudokuId = sudokuService.uploadSudoku(sudokuDto);
@@ -139,9 +139,9 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             using (TransactionScope scope = new TransactionScope())
             {
                 long usrId = userService.RegisterUser(userName, clearPassword,
-                new UserDetails(firstName, lastName, email, idiom, country, true));
+                new UserDetails(firstName, lastName, email, idiom, country));
 
-                SudokuDto sudokuDto = new SudokuDto(usrId, "sudoku1", "no rules", "easy", true, false,
+                SudokuDto sudokuDto = new SudokuDto(-1,usrId, "sudoku1", "no rules", "easy", true, false,
                     false, false, false, matriz1, matrizSolution);
 
                 long sudokuId = sudokuService.uploadSudoku(sudokuDto);
@@ -167,11 +167,11 @@ namespace Es.Udc.DotNet.SudokuApp.Test
             using (TransactionScope scope = new TransactionScope())
             {
                 long usrId = userService.RegisterUser(userName, clearPassword,
-                    new UserDetails(firstName, lastName, email, idiom, country, true));
+                    new UserDetails(firstName, lastName, email, idiom, country));
                 long usrId1 = userService.RegisterUser("aa", "bb",
-                    new UserDetails(firstName1, lastName1, email1, idiom1, country1, true));
+                    new UserDetails(firstName1, lastName1, email1, idiom1, country1));
 
-                SudokuDto sudokuDto = new SudokuDto(usrId, "sudoku1", "no rules", "easy", true, false,
+                SudokuDto sudokuDto = new SudokuDto(-1,usrId, "sudoku1", "no rules", "easy", true, false,
                     false, false, false, matriz1, matrizSolution);
 
                 long sudokuId = sudokuService.uploadSudoku(sudokuDto);
