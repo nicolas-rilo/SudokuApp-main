@@ -2,7 +2,15 @@
     CodeBehind="UploadSudoku.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku.UploadSudoku" meta:resourcekey="Page" UnobtrusiveValidationMode="None"%>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-
+    <script type="text/javascript" language="javascript">  
+        $(document).ready(function (e) {
+            try {
+                $("#ddlprofile").msDropDown();
+            } catch (e) {
+                alert(e.message);
+            }
+        });
+</script>
     <div runat="server" id="prueba" class="prueba">
         <form runat="server">
 
@@ -78,7 +86,7 @@
             </div>
 
 
-            <asp:Table id="ThermoPath" Runat="server"/>
+            <asp:Table id="ThermoPath" CssClass="sudoku" Runat="server"/>
 
             <div class="button">
                 <asp:Button ID="btnAddPath" runat="server" meta:resourcekey="btnAddPath" OnClick="AddPath" />

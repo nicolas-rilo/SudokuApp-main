@@ -99,6 +99,8 @@
     <Content Include="Css\images\CentroS.png" />
     <Content Include="Css\images\CerrarThermo.png" />
     <Content Include="Css\images\Linea.png" />
+    <Content Include="Css\images\TurnDown.png" />
+    <Content Include="Css\images\TurnUp.png" />
     <Content Include="Css\Styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Home.aspx" />
