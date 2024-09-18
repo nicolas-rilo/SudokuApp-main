@@ -346,7 +346,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
             }
         }
 
-        public static void uploadSudoku(HttpContext context, string name, string rules, string dificulty
+        public static long uploadSudoku(HttpContext context, string name, string rules, string dificulty
             , bool normal, bool killer, bool thermal, bool arrow, bool custom, int[,] puzzle, int[,] solution) {
             UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
@@ -354,7 +354,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
 
             SudokuDto sudokuDto = new SudokuDto(0, userSession.UserProfileId, name, rules, dificulty,
                 normal, killer, thermal, arrow, custom, puzzle, solution);
-            sudokuService.uploadSudoku(sudokuDto);
+            return sudokuService.uploadSudoku(sudokuDto);
         }
 
         public static SudokuDto generateSudoku(HttpContext context, int dificulty) {
@@ -403,6 +403,16 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
             UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
             return tournamenService.getUserRank(userSession.UserProfileId,tournamentId);
+        }
+
+        public static List<ThermoDto> getThermos(HttpContext context, long sudokuId) {
+
+            return sudokuService.getSudokuThermos(sudokuId);
+        }
+        public static void uploadThermo(HttpContext context, long sudokuId,(int,int) startCell, (int,int) endCell, List<(int,int)> ps)
+        {
+
+             sudokuService.createThermo(sudokuId,startCell,endCell,ps);
         }
     }
 }

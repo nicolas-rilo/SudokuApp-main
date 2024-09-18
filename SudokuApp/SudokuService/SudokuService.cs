@@ -248,14 +248,17 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             thermoDao.Create(thermo);
             sudoku.Thermo.Add(thermo);
             sudokuDao.Update(sudoku);
-
-            foreach ((int, int) a in cells)
+            if (cells != null)
             {
-                Cell cell = cellDao.getCellByPosition(sudoku, a);
-                cell.Thermo2.Add(thermo);
-                cellDao.Update(cell);
+                foreach ((int, int) a in cells)
+                {
+                    Cell cell = cellDao.getCellByPosition(sudoku, a);
+                    cell.Thermo2.Add(thermo);
+                    cellDao.Update(cell);
 
+                }
             }
+
 
             return thermo.thermoId;
         }

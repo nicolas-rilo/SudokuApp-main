@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.UI.WebControls;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.ModelUtil.Log;
 using Es.Udc.DotNet.SudokuApp.Web.HTTP.Session;
@@ -21,6 +22,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web
 
             IIoCManager IoCManager = new IoCManagerNinject();
             IoCManager.Configure();
+            WebControl.DisabledCssClass = "";
 
             Application["managerIoC"] = IoCManager;
             LogManager.RecordMessage("NInject kernel container started", MessageType.Info);

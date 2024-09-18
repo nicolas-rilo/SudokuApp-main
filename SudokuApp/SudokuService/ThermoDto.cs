@@ -8,7 +8,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 {
     public class ThermoDto
     {
-        public long sudokuId { get; private set; }
+        public long sudokuId { get; set; }
         public (int, int) startCell { get; private set; }
         public (int, int) endCell { get; private set; }
         public List<(int, int)> cells { get; private set; }

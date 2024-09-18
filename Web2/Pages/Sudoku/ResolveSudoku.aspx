@@ -16,8 +16,8 @@
               </Triggers>
             </asp:UpdatePanel>
 
-            <asp:Table id="Table1" Runat="server"/>
-            <asp:Table id="Table2" Runat="server"/>
+            <asp:Table id="Table1" CssClass="sudoku" Runat="server"/>
+            <asp:Table id="Table2" CssClass="sudoku" Runat="server"/>
 
             <div class="button">
                 <asp:Button ID="btnSolve" runat="server" meta:resourcekey="btnSolve" OnClick="validateSolution"  />

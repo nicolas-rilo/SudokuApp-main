@@ -15,6 +15,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
     {
         public static Stopwatch sw;
         SudokuDto sudokuDto;
+        List<ThermoDto> thermoDtos;
         protected void Page_Load(object sender, EventArgs e)
         {
             lblExplanation.Visible = false;
@@ -86,6 +87,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                 else {
                     List<SudokuDto> sudokuDtos = SessionManager.findSudoku(Context, long.Parse(Request.QueryString["id"]));
                     sudokuDto = sudokuDtos[0];
+                    thermoDtos = SessionManager.getThermos(Context, long.Parse(Request.QueryString["id"]));
 
                 }
                 
@@ -111,6 +113,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
 
                 }
 
+
                 for (int i = 0; i < 9; i++)
                 {
                     for (int j = 0; j < 9; j++)
@@ -124,6 +127,24 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                 if (sudokuDto.rules != null) {
                     lblSudokuExp.Text =  sudokuDto.rules;
                     lblSudokuExp.Visible = true;
+                }
+
+
+                if (thermoDtos != null)
+                {
+                    foreach (ThermoDto a in thermoDtos)
+                    {
+                        TextBox textBox = (TextBox)Table1.FindControl("cell" + "-" + a.startCell.Item1 + "-" + a.startCell.Item2);
+                        textBox.CssClass = "image1";
+                        TextBox textBox1 = (TextBox)Table1.FindControl("cell" + "-" + a.endCell.Item1 + "-" + a.endCell.Item2);
+                        textBox1.CssClass = "image3";
+
+                        TextBox textBox2 = (TextBox)Table1.FindControl("cellT2" + "-" + a.startCell.Item1 + "-" + a.startCell.Item2);
+                        textBox2.CssClass = "image1";
+                        TextBox textBox3 = (TextBox)Table1.FindControl("cellT2" + "-" + a.endCell.Item1 + "-" + a.endCell.Item2);
+                        textBox3.CssClass = "image3";
+
+                    }
                 }
             }
 

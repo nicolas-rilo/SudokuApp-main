@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnAddPath.Text" xml:space="preserve">
+    <value>Engade camiño</value>
+  </data>
+  <data name="btnCreate.Text" xml:space="preserve">
+    <value>Crear</value>
+  </data>
   <data name="btnSwitch.Text" xml:space="preserve">
     <value>Solucion</value>
   </data>
@@ -152,5 +158,11 @@
   </data>
   <data name="lclSudokuRules.Text" xml:space="preserve">
     <value>Reglas</value>
+  </data>
+  <data name="lclThermoE.Text" xml:space="preserve">
+    <value>Final</value>
+  </data>
+  <data name="lclThermoS.Text" xml:space="preserve">
+    <value>Inicio</value>
   </data>
 </root>
