@@ -80,8 +80,18 @@
 
             <asp:Table id="ThermoPath" CssClass="sudoku" Runat="server"/>
 
+            <asp:Table id="ArrowPath" CssClass="sudoku" Runat="server"/>
+
+
             <div class="button">
                 <asp:Button ID="btnAddPath" runat="server" meta:resourcekey="btnAddPath" OnClick="AddPath" />
+            </div>
+
+            <div class="button">
+                <asp:Button ID="btnAddArrow" runat="server" meta:resourcekey="btnAddArrow" OnClick="AddArrow" />
+            </div>
+            <div class="button">
+                <asp:Button ID="btnCreate2" runat="server" meta:resourcekey="btnCreate" OnClick="CreateArrow" />
             </div>
 
             <div class="button">

@@ -186,6 +186,15 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         protected global::System.Web.UI.WebControls.Table ThermoPath;
 
         /// <summary>
+        /// Control ArrowPath.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table ArrowPath;
+
+        /// <summary>
         /// Control btnAddPath.
         /// </summary>
         /// <remarks>
@@ -193,6 +202,24 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddPath;
+
+        /// <summary>
+        /// Control btnAddArrow.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddArrow;
+
+        /// <summary>
+        /// Control btnCreate2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreate2;
 
         /// <summary>
         /// Control btnCreate.

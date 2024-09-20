@@ -89,12 +89,43 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
 
             }
 
+            for (int i = 0; i < 9; i++)
+            {
+                TableRow r = new TableRow();
+                for (int j = 0; j < 9; j++)
+                {
+                    TableCell c = new TableCell();
+                    DropDownList dropDown = new DropDownList();
+
+                    DataTable objdt = new DataTable();
+                    objdt = GetDataArrow();
+                    dropDown.DataSource = objdt;
+                    dropDown.DataTextField = "Figure";
+                    dropDown.DataValueField = "Id";
+                    dropDown.DataBind();
+
+
+                    dropDown.CssClass = "cell";
+                    dropDown.ID = "checkT2-" + i + "-" + j;
+
+                    c.Controls.Add(dropDown);
+                    r.Controls.Add(c);
+
+                }
+                ArrowPath.Rows.Add(r);
+
+            }
+
             lclSolution.Visible = false;
             btnCreate.Visible = false;
+            btnCreate2.Visible = false;
             btnSwitch2.Visible = false;
             Table2.Visible = false;
             ThermoPath.Visible = false;
+            ArrowPath.Visible = false;
             btnAddPath.Visible = true;
+            btnAddArrow.Visible = true;
+
         }
 
 
@@ -154,6 +185,62 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             return _objdt;
         }
 
+
+        public DataTable GetDataArrow()
+        {
+            DataTable _objdt = new DataTable();
+
+            _objdt.Columns.Add("Figure", typeof(string));
+            _objdt.Columns.Add("Id", typeof(long));
+
+            _objdt.Columns.Add("LabelValue");
+            var _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "";
+            _objrow["Id"] = 1;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "┐";
+            _objrow["Id"] = 2;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "┘";
+            _objrow["Id"] = 3;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "└";
+            _objrow["Id"] = 4;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "┌";
+            _objrow["Id"] = 5;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "│";
+            _objrow["Id"] = 6;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "─";
+            _objrow["Id"] = 7;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "O";
+            _objrow["Id"] = 8;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "█";
+            _objrow["Id"] = 9;
+            _objdt.Rows.Add(_objrow);
+
+            return _objdt;
+        }
 
 
 
@@ -340,5 +427,59 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
 
         }
 
+        protected void CreateArrow(object sender, EventArgs e)
+        {
+            TextBox textBox = new TextBox();
+            TextBox textBox1 = new TextBox();
+            String image = null;
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    DropDownList dropDown = (DropDownList)ThermoPath.FindControl("checkT2-" + i + "-" + j);
+                    switch (dropDown.SelectedIndex)
+                    {
+                        case 0: break;
+                        case 1:
+                            image = "image11"; break;
+                        case 2:
+                            image = "image12"; break;
+                        case 3:
+                            image = "image15"; break;
+                        case 4:
+                            image = "image14"; break;
+                        case 5:
+                            image = "image13"; break;
+                        case 6:
+                            image = "image9"; break;
+                        case 7:
+                            image = "image1"; break;
+                        case 8:
+                            image = "image10"; break;
+                        default: break;
+
+                    }
+                    if (image != null)
+                    {
+
+                        textBox = (TextBox)Table1.FindControl("cell" + "-" + i + "-" + j);
+                        textBox.CssClass = image;
+                        textBox1 = (TextBox)Table2.FindControl("cellT2" + "-" + i + "-" + j);
+                        textBox1.CssClass = image;
+                        image = null;
+                    }
+                }
+            }
+
+        }
+
+        protected void AddArrow(object sender, EventArgs e)
+        {
+            ArrowPath.Visible = true;
+            btnAddArrow.Visible = false;
+            btnCreate2.Visible = true;
+
+        }
+        
     }
 }
