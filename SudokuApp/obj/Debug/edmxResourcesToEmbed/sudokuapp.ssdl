@@ -23,6 +23,7 @@
     </Key>
     <Property Name="cellId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="row_index" Type="int" />
+    <Property Name="image" Type="int" />
     <Property Name="col_index" Type="int" />
     <Property Name="cell_value" Type="int" />
   </EntityType>

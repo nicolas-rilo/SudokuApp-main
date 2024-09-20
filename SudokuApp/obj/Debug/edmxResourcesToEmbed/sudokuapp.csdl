@@ -30,6 +30,7 @@
     <NavigationProperty Name="Sudoku" Relationship="Self.Sudoku_Cells_Puzzle" FromRole="Cell" ToRole="Sudoku" />
     <NavigationProperty Name="Sudoku1" Relationship="Self.Sudoku_Cells_Solution" FromRole="Cell" ToRole="Sudoku" />
     <NavigationProperty Name="Thermo2" Relationship="Self.Thermo_Cell" FromRole="Cell" ToRole="Thermo" />
+    <Property Name="image" Type="Int32" />
   </EntityType>
   <EntityType Name="Killer_box">
     <Key>

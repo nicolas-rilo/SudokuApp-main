@@ -96,11 +96,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\images\ArrowC.png" />
-    <Content Include="Css\images\CentroS.png" />
     <Content Include="Css\images\CerrarThermo.png" />
+    <Content Include="Css\images\image9.png" />
+    <Content Include="Css\images\image9V2.png" />
     <Content Include="Css\images\Linea.png" />
+    <Content Include="Css\images\LineaG.png" />
     <Content Include="Css\images\TurnDown.png" />
+    <Content Include="Css\images\TurnDownLeft.png" />
     <Content Include="Css\images\TurnUp.png" />
+    <Content Include="Css\images\TurnUpLeft.png" />
     <Content Include="Css\Styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Home.aspx" />

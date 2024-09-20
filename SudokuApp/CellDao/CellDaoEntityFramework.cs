@@ -18,7 +18,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
         {
         }
 
-        public void addCellsToSudokuPuzzle(Sudoku sudoku, int[,] puzzle)
+        public void addCellsAndImageToSudokuPuzzle(Sudoku sudoku, int[,] puzzle, int[,] image)
         {
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -26,6 +26,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
                     cell.cell_value = puzzle[i,j];
                     cell.col_index = i+1;
                     cell.row_index = j+1;
+                    cell.image = image[i, j];
                     base.Create(cell);
                     sudoku.Cell1.Add(cell);
                     sudokuDao.Update(sudoku);
@@ -33,7 +34,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
             }
         }
 
-        public void addCellsToSudokuSolution(Sudoku sudoku, int[,] solution)
+        public void addCellsAndImageToSudokuSolution(Sudoku sudoku, int[,] solution, int[,] image)
         {
             for (int i = 0; i < 9; i++)
             {
@@ -41,6 +42,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
                 {
                     Cell cell = new Cell();
                     cell.cell_value = solution[i,j];
+                    cell.image = image[i, j];
                     cell.col_index = i+1;
                     cell.row_index = j+1;
                     base.Create(cell);
@@ -49,6 +51,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
                 }
             }
         }
+
 
         public void updateCellsPuzzle(Sudoku sudoku, int[,] puzzle)
         {
@@ -97,6 +100,20 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
             return result;
         }
 
+        public int[,] getSudokuCellImage(Sudoku sudoku)
+        {
+            List<Cell> cells = sudoku.Cell.ToList();
+            int[,] result = new int[10, 10];
+
+            foreach (Cell i in cells)
+            {
+                result[(int)i.col_index - 1, (int)i.row_index - 1] = (int)i.image;
+            }
+
+            return result;
+        }
+
+
         public void updateCellsSolution(Sudoku sudoku, int[,] solution)
         {
             throw new NotImplementedException();
@@ -132,5 +149,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
 
             return cells[absolutePosition];
         }
+
+
     }
 }

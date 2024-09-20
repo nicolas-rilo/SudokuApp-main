@@ -49,7 +49,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
         private SudokuDto sudokuToSudokudto (Sudoku sudoku) {
             return new SudokuDto(sudoku.sudokuId,sudoku.usrId,sudoku.name,sudoku.rules,sudoku.dificulty, (bool)sudoku.normal, (bool)sudoku.killer,
-                (bool)sudoku.thermal, (bool)sudoku.arrow, (bool)sudoku.custom, cellDao.getSudokuCellPuzzle(sudoku), cellDao.getSudokuCellSolution(sudoku));
+                (bool)sudoku.thermal, (bool)sudoku.arrow, (bool)sudoku.custom, cellDao.getSudokuCellPuzzle(sudoku), cellDao.getSudokuCellSolution(sudoku), cellDao.getSudokuCellImage(sudoku));
         }
 
         public List<SudokuDto> findByUser(long userId, int start, int size)
@@ -117,8 +117,8 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
             sudokuDao.Create(sudoku);
 
-            cellDao.addCellsToSudokuPuzzle(sudoku, sudokuDto.puzzle);
-            cellDao.addCellsToSudokuSolution(sudoku, sudokuDto.solution);
+            cellDao.addCellsAndImageToSudokuPuzzle(sudoku, sudokuDto.puzzle, sudokuDto.image);
+            cellDao.addCellsAndImageToSudokuSolution(sudoku, sudokuDto.solution, sudokuDto.image);
 
             return sudoku.sudokuId;
         }
@@ -325,7 +325,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
 
             SudokuDto sudokuDto = new SudokuDto(0,0, "Generates", "no rules", dificultyDto, true, false, false,
-                                    false, false, puzzle, solution);
+                                    false, false, puzzle, solution,null);
             return sudokuDto;
         }
 

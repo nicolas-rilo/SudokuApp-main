@@ -40,6 +40,10 @@
                 <asp:Button ID="btnSwitch2" runat="server" meta:resourcekey="btnSwitch2" OnClick="switchTable" />
             </div>
 
+            <span style="color:red">
+                <asp:Localize ID="lclSolution" runat="server" meta:resourcekey="lclSolution" />
+            </span>
+
             <asp:Table id="Table1" CssClass="sudoku" Runat="server"/>
             <asp:Table id="Table2" CssClass="sudoku" Runat="server"/>
 
@@ -72,18 +76,6 @@
                     </asp:DropDownList>
             </div>
 
-            <div class="field">
-                <span class="label">
-                    <asp:Localize ID="lclThermoS" runat="server" meta:resourcekey="lclThermoS" /></span><span class="entry">
-                        <asp:TextBox ID="txtThermoS" runat="server" Width="100px" Columns="16"
-                            meta:resourcekey="txtThermoSResource"></asp:TextBox>
-            </div>
-            <div class="field">
-                <span class="label">
-                    <asp:Localize ID="lclThermoE" runat="server" meta:resourcekey="lclThermoE" /></span><span class="entry">
-                        <asp:TextBox ID="txtThermoE" runat="server" Width="100px" Columns="16"
-                            meta:resourcekey="txtThermoEResource"></asp:TextBox>
-            </div>
 
 
             <asp:Table id="ThermoPath" CssClass="sudoku" Runat="server"/>

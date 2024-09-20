@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnAddPath.Text" xml:space="preserve">
-    <value>Añade camino</value>
+    <value>Thermo</value>
   </data>
   <data name="btnCreate.Text" xml:space="preserve">
     <value>Crear</value>
@@ -152,6 +152,9 @@
   </data>
   <data name="lclDificulty.Text" xml:space="preserve">
     <value>Dificultad</value>
+  </data>
+  <data name="lclSolution.Text" xml:space="preserve">
+    <value>Los sudokus deben de tener soluciones completas</value>
   </data>
   <data name="lclSudokuName.Text" xml:space="preserve">
     <value>Nombre del Sudoku</value>

@@ -99,6 +99,7 @@ CREATE TABLE Sudoku (
 CREATE TABLE Cell(
 	cellId bigint IDENTITY(1,1) NOT NULL,
 	row_index INT,
+	image INT,
     col_index INT,
 	cell_value INT,
 

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="sudokuappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="sudokuappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Arrow">
           <Key>
             <PropertyRef Name="arrowId" />
@@ -28,6 +28,7 @@
           </Key>
           <Property Name="cellId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="row_index" Type="int" />
+          <Property Name="image" Type="int" />
           <Property Name="col_index" Type="int" />
           <Property Name="cell_value" Type="int" />
         </EntityType>
@@ -520,8 +521,7 @@
             <End Role="Sudoku" EntitySet="Sudoku" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="sudokuappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -555,6 +555,7 @@
           <NavigationProperty Name="Sudoku" Relationship="Self.Sudoku_Cells_Puzzle" FromRole="Cell" ToRole="Sudoku" />
           <NavigationProperty Name="Sudoku1" Relationship="Self.Sudoku_Cells_Solution" FromRole="Cell" ToRole="Sudoku" />
           <NavigationProperty Name="Thermo2" Relationship="Self.Thermo_Cell" FromRole="Cell" ToRole="Thermo" />
+          <Property Name="image" Type="Int32" />
         </EntityType>
         <EntityType Name="Killer_box">
           <Key>
@@ -930,6 +931,7 @@
           <EntitySetMapping Name="Cell">
             <EntityTypeMapping TypeName="sudokuappModel.Cell">
               <MappingFragment StoreEntitySet="Cell">
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="cellId" ColumnName="cellId" />
                 <ScalarProperty Name="row_index" ColumnName="row_index" />
                 <ScalarProperty Name="col_index" ColumnName="col_index" />

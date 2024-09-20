@@ -32,6 +32,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model
         public Nullable<int> row_index { get; set; }
         public Nullable<int> col_index { get; set; }
         public Nullable<int> cell_value { get; set; }
+        public Nullable<int> image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Arrow> Arrow { get; set; }

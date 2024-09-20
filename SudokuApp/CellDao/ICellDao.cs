@@ -9,16 +9,20 @@ namespace Es.Udc.DotNet.SudokuApp.Model.CellDao
 {
     public interface ICellDao : IGenericDao<Cell, Int64>
     {
-        void addCellsToSudokuPuzzle(Sudoku sudoku, int[,] puzzle);
+        void addCellsAndImageToSudokuPuzzle(Sudoku sudoku, int[,] puzzle, int[,] image);
 
-        void addCellsToSudokuSolution(Sudoku sudoku, int[,] solution);
+        void addCellsAndImageToSudokuSolution(Sudoku sudoku, int[,] solution, int[,] image);
+
 
         int[,] getSudokuCellPuzzle(Sudoku sudoku);
 
         int[,] getSudokuCellSolution(Sudoku sudoku);
 
+        int[,] getSudokuCellImage(Sudoku sudoku);
+
         void updateCellsPuzzle(Sudoku sudoku, int[,] puzzle);
         void updateCellsSolution(Sudoku sudoku, int[,] solution);
+
 
         long getCellIdByPosition(Sudoku sudoku, (int,int) pos);
 

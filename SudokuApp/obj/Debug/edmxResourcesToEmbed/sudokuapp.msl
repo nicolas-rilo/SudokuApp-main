@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Cell">
       <EntityTypeMapping TypeName="sudokuappModel.Cell">
         <MappingFragment StoreEntitySet="Cell">
+          <ScalarProperty Name="image" ColumnName="image" />
           <ScalarProperty Name="cellId" ColumnName="cellId" />
           <ScalarProperty Name="row_index" ColumnName="row_index" />
           <ScalarProperty Name="col_index" ColumnName="col_index" />

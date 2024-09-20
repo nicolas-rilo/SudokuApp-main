@@ -98,13 +98,17 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                         TextBox textBox = (TextBox)Table1.FindControl("cell" + "-" + i + "-" + j);
                         if (sudokuDto.puzzle[i, j] != 0)
                         {
-                            textBox.Text = sudokuDto.puzzle[i, j].ToString();
+                            textBox.Text = sudokuDto.puzzle[i, j].ToString(); 
                             textBox.Enabled = false;
                             textBox.ForeColor = System.Drawing.Color.Black ;
                         }
                         else
                         {
                             textBox.Text = "";
+                        }
+                        if (sudokuDto.image[i, j] != 0)
+                        {
+                            textBox.CssClass = "image" + sudokuDto.image[i, j];
                         }
                         textBox.BackColor = System.Drawing.Color.White;
 

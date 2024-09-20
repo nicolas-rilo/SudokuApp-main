@@ -21,10 +21,11 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         public bool custom { get; private set; }
         public int[,] puzzle { get; private set; }
         public int[,] solution { get; private set; }
+        public int[,] image { get; private set; }
 
-        public SudokuDto(long sudokuId, long userId, string name, string rules,
+        public SudokuDto(long sudokuId, long userId, string name, string rules, 
             string dificulty, bool nomal, bool killer, bool thermal, bool arrow, 
-            bool custom, int[,] puzzle, int[,] solution)
+            bool custom, int[,] puzzle, int[,] solution, int[,] image)
         {
             this.sudokuId = sudokuId;
             this.userId = userId;
@@ -38,6 +39,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
             this.custom = custom;
             this.puzzle = puzzle;
             this.solution = solution;
+            this.image = image;
         }
     }
 }

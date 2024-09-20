@@ -347,13 +347,13 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
         }
 
         public static long uploadSudoku(HttpContext context, string name, string rules, string dificulty
-            , bool normal, bool killer, bool thermal, bool arrow, bool custom, int[,] puzzle, int[,] solution) {
+            , bool normal, bool killer, bool thermal, bool arrow, bool custom, int[,] puzzle, int[,] solution, int[,] image) {
             UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
 
 
 
             SudokuDto sudokuDto = new SudokuDto(0, userSession.UserProfileId, name, rules, dificulty,
-                normal, killer, thermal, arrow, custom, puzzle, solution);
+                normal, killer, thermal, arrow, custom, puzzle, solution, image);
             return sudokuService.uploadSudoku(sudokuDto);
         }
 
