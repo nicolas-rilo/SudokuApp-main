@@ -294,12 +294,12 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
 
             _objrow = _objdt.NewRow();
             _objrow["Figure"] = "↑";
-            _objrow["Id"] = 12;
+            _objrow["Id"] = 11;
             _objdt.Rows.Add(_objrow);
 
             _objrow = _objdt.NewRow();
             _objrow["Figure"] = "↓";
-            _objrow["Id"] = 11;
+            _objrow["Id"] = 12;
             _objdt.Rows.Add(_objrow);
 
             return _objdt;
@@ -547,7 +547,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                         case 10:
                             image = "image21"; break;
                         case 11:
-                            image = "image20"; break;
+                            image = "image19"; break;
                         default: break;
 
                     }
