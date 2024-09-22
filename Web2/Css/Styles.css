@@ -227,3 +227,63 @@ input {
     border: 1px solid #979191;
     transition: all 0.3s ease-in-out;
 }
+.image16 {
+    background-image: url('/Css/images/CerrarThermo_1.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
+}
+.image17 {
+    background-image: url('/Css/images/CerrarThermo_2.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
+}
+.image18 {
+    background-image: url('/Css/images/CerrarThermo_3.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
+}
+.image19 {
+    background-image: url('/Css/images/image10_1.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
+}
+.image20 {
+    background-image: url('/Css/images/image10_2.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
+}
+.image21 {
+    background-image: url('/Css/images/image10_3.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
+}

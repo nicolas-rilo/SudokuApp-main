@@ -97,7 +97,13 @@
   <ItemGroup>
     <Content Include="Css\images\ArrowC.png" />
     <Content Include="Css\images\CerrarThermo.png" />
+    <Content Include="Css\images\CerrarThermo_1.png" />
+    <Content Include="Css\images\CerrarThermo_2.png" />
+    <Content Include="Css\images\CerrarThermo_3.png" />
     <Content Include="Css\images\image10.png" />
+    <Content Include="Css\images\image10_1.png" />
+    <Content Include="Css\images\image10_2.png" />
+    <Content Include="Css\images\image10_3.png" />
     <Content Include="Css\images\image11.png" />
     <Content Include="Css\images\image12.png" />
     <Content Include="Css\images\image13.png" />

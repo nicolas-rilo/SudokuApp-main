@@ -212,10 +212,24 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             _objdt.Rows.Add(_objrow);
 
             _objrow = _objdt.NewRow();
-            _objrow["Figure"] = "█";
+            _objrow["Figure"] = "→";
             _objrow["Id"] = 9;
             _objdt.Rows.Add(_objrow);
 
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "←";
+            _objrow["Id"] = 10;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "↑";
+            _objrow["Id"] = 11;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "↓";
+            _objrow["Id"] = 12;
+            _objdt.Rows.Add(_objrow);
             return _objdt;
         }
 
@@ -269,8 +283,23 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             _objdt.Rows.Add(_objrow);
 
             _objrow = _objdt.NewRow();
-            _objrow["Figure"] = "█";
+            _objrow["Figure"] = "→";
             _objrow["Id"] = 9;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "←";
+            _objrow["Id"] = 10;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "↑";
+            _objrow["Id"] = 12;
+            _objdt.Rows.Add(_objrow);
+
+            _objrow = _objdt.NewRow();
+            _objrow["Figure"] = "↓";
+            _objrow["Id"] = 11;
             _objdt.Rows.Add(_objrow);
 
             return _objdt;
@@ -431,6 +460,12 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                             image = "image1"; break;
                         case 8:
                             image = "image3"; break;
+                        case 9:
+                            image = "image17"; break;
+                        case 10:
+                            image = "image18"; break;
+                        case 11:
+                            image = "image16"; break;
                         default: break;
 
                     }
@@ -507,6 +542,12 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                             image = "image1"; break;
                         case 8:
                             image = "image10"; break;
+                        case 9:
+                            image = "image20"; break;
+                        case 10:
+                            image = "image21"; break;
+                        case 11:
+                            image = "image20"; break;
                         default: break;
 
                     }
