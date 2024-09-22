@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Log;
 using Es.Udc.DotNet.SudokuApp.Model.UsuarioService;
 using Es.Udc.DotNet.SudokuApp.Web.HTTP.Session;
@@ -13,12 +12,10 @@ using Es.Udc.DotNet.SudokuApp.Web.HTTP.View;
 
 namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
 {
-    public partial class Register : SpecificCulturePage
+    public partial class ModifyProfile : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblLoginError.Visible = false;
-
             if (!IsPostBack)
             {
                 String defaultLanguage =
@@ -28,30 +25,25 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
 
                 UpdateComboLanguage(defaultLanguage);
                 UpdateComboCountry(defaultLanguage, defaultCountry);
-            }
 
+                UserDetails userDetails = SessionManager.FindUserDetails(Context);
+
+                txtLogin.Text = userDetails.userName;
+                txtFirstName.Text = userDetails.firstName;
+                txtLastName.Text = userDetails.lastName;
+                txtEmail.Text = userDetails.Email;
+                comboCountry.SelectedValue = userDetails.country;
+                comboLanguage.SelectedValue = userDetails.idiom;
+            }
         }
 
-        protected void BtnRegisterClick(object sender, EventArgs e)
+        protected void ModifyData(object sender, EventArgs e)
         {
-            if (Page.IsValid)
-            {
-                try
-                {
-                    UserDetails userDetails = new UserDetails(txtLogin.Text,txtFirstName.Text,txtLastName.Text,txtEmail.Text,
-                            comboLanguage.SelectedValue,comboCountry.SelectedValue);
-                    SessionManager.RegisterUser(Context,txtLogin.Text,txtPassword.Text,userDetails);
-
-                    Response.Redirect(Response.ApplyAppPathModifier("~/Pages/Home.aspx"));
-                }
-                catch (DuplicateInstanceException)
-                {
-                    lblLoginError.Visible = true;
-                }
-        
-            }
+            UserDetails user = new UserDetails(txtLogin.Text,txtFirstName.Text,txtLastName.Text,txtEmail.Text, comboLanguage.SelectedValue, comboCountry.SelectedValue);
+            SessionManager.UpdateUserProfileDetails(Context, user);
+           
+            Response.Redirect(Response.ApplyAppPathModifier("~/Pages/User/Profile.aspx"));
         }
-
 
         private String GetLanguageFromBrowserPreferences()
         {
@@ -108,5 +100,6 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
             this.UpdateComboCountry(comboLanguage.SelectedValue,
                 comboCountry.SelectedValue);
         }
+
     }
 }

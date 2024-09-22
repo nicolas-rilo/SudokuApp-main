@@ -105,6 +105,8 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
             }
         }
 
+
+
         /// <summary>
         /// Tries to log in with the corresponding method of
         /// <c>UserService</c>, and if successful, inserts in the
@@ -141,7 +143,13 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
             return loginResult;
         }
 
+        public static void ChecPass(HttpContext context, String loginName, String clearPassword)
+        {
+            LoginResult loginResult =
+                 userService.Login(loginName, clearPassword,
+                     false);
 
+        }
         /// <summary>
         /// Updates the session values for an previously authenticated user
         /// </summary>
@@ -414,5 +422,22 @@ namespace Es.Udc.DotNet.SudokuApp.Web.HTTP.Session
 
              sudokuService.createThermo(sudokuId,startCell,endCell,ps);
         }
+        public static List<SudokuDto> findSudokusByUser(HttpContext context, int start, int size) {
+            UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+
+
+            return sudokuService.findByUser(userSession.UserProfileId, start, size);
+        }
+        public static void reviewSudoku(HttpContext context,long sudokuId, int review) {
+            UserSession userSession = (UserSession)context.Session[USER_SESSION_ATTRIBUTE];
+
+            sudokuService.reviewSudoku(sudokuId, userSession.UserProfileId, review);
+        }
+        public static int averageReview(HttpContext context, long sudokuId) {
+            return sudokuService.getAverageReview(sudokuId);
+            
+        }
+
     }
+
 }

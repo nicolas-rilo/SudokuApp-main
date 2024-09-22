@@ -14,6 +14,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         public string name { get; private set; }
         public string rules { get; private set; }
         public string dificulty { get; private set; }
+        public long review { get; set; }
         public bool nomal { get; private set; }
         public bool killer { get; private set; }
         public bool thermal { get; private set; }

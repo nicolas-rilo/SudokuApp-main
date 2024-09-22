@@ -119,8 +119,11 @@
     <Content Include="Pages\Tournament\CreateTournament.aspx" />
     <Content Include="Pages\Tournament\Ranking.aspx" />
     <Content Include="Pages\Tournament\SelectTournament.aspx" />
+    <Content Include="Pages\User\ChangePass.aspx" />
+    <Content Include="Pages\User\DeleteAcount.aspx" />
     <Content Include="Pages\User\LogIn.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
+    <Content Include="Pages\User\ModifyProfile.aspx" />
     <Content Include="Pages\User\Profile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Web.config" />
@@ -193,6 +196,20 @@
     <Compile Include="Pages\Tournament\SelectTournament.aspx.designer.cs">
       <DependentUpon>SelectTournament.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\ChangePass.aspx.cs">
+      <DependentUpon>ChangePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ChangePass.aspx.designer.cs">
+      <DependentUpon>ChangePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\DeleteAcount.aspx.cs">
+      <DependentUpon>DeleteAcount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\DeleteAcount.aspx.designer.cs">
+      <DependentUpon>DeleteAcount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,6 +223,13 @@
     </Compile>
     <Compile Include="Pages\User\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ModifyProfile.aspx.cs">
+      <DependentUpon>ModifyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ModifyProfile.aspx.designer.cs">
+      <DependentUpon>ModifyProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
@@ -337,6 +361,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Tournament\App_LocalResources\Ranking.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Profile.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Profile.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Profile.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ModifyProfile.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ModifyProfile.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ModifyProfile.aspx.gl.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePass.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePass.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\ChangePass.aspx.gl.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

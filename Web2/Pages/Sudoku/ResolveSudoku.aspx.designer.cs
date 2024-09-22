@@ -114,6 +114,24 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         protected global::System.Web.UI.WebControls.Localize lblSudokuExp;
 
         /// <summary>
+        /// Control lclReview.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclReview;
+
+        /// <summary>
+        /// Control DbdReview.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DbdReview;
+
+        /// <summary>
         /// Control btnAccept.
         /// </summary>
         /// <remarks>

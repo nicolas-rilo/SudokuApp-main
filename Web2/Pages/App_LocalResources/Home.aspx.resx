@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnArrow.Text" xml:space="preserve">
+    <value>Arrow</value>
+  </data>
   <data name="btnCustom.Text" xml:space="preserve">
     <value>Custom</value>
+  </data>
+  <data name="btnKiller.Text" xml:space="preserve">
+    <value>Killer</value>
   </data>
   <data name="btnNormal.Text" xml:space="preserve">
     <value>Normal</value>
@@ -128,6 +134,21 @@
   </data>
   <data name="btnSelect.Text" xml:space="preserve">
     <value>Play</value>
+  </data>
+  <data name="btnThermal.Text" xml:space="preserve">
+    <value>Thermal</value>
+  </data>
+  <data name="lblDificulty.Text" xml:space="preserve">
+    <value>Dificulty</value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="lblReview.Text" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="lblRules.Text" xml:space="preserve">
+    <value>Rules</value>
   </data>
   <data name="lclDificulty.Text" xml:space="preserve">
     <value>Dificulty</value>

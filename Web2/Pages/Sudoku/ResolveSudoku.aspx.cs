@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,6 +23,8 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             btnAccept.Visible = false;
             Table2.Visible = true;
             lblSudokuExp.Visible = false;
+            lclReview.Visible = false;
+            DbdReview.Visible = false;
 
             if (SessionManager.IsUserAuthenticated(Context) && Request.QueryString["tournament"] == "true")
             {
@@ -106,10 +109,14 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                         {
                             textBox.Text = "";
                         }
-                        if (sudokuDto.image[i, j] != 0)
-                        {
-                            textBox.CssClass = "image" + sudokuDto.image[i, j];
+                        if(sudokuDto.image != null) {
+                            if (sudokuDto.image[i, j] != 0)
+                            {
+                                textBox.CssClass = "image" + sudokuDto.image[i, j];
+                            }
+
                         }
+                        
                         textBox.BackColor = System.Drawing.Color.White;
 
                     }
@@ -207,8 +214,12 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             if (count == 81) {
                 lblExplanation.Visible = true;
                 btnAccept.Visible = true;
+                if (SessionManager.IsUserAuthenticated(Context) && Request.QueryString["tournament"] != "true") {
+                    lclReview.Visible = true;
+                    DbdReview.Visible = true;
+                }
                 sw.Stop();
-                if (Request.QueryString["tournament"] == "true")
+                if (Request.QueryString["tournament"] == "true" && Label1.ForeColor != Color.Red)
                 {
                     string[] words = Label1.Text.Split(delimiterChars);
                     TimeSpan timeSpan = new TimeSpan(int.Parse(words[0]), int.Parse(words[1]),int.Parse(words[2]));
@@ -216,11 +227,22 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                     SessionManager.participate(Context,long.Parse (Request.QueryString["tournamentId"]),timeSpan);
                 }
             }
+            else {
+                if (Request.QueryString["tournament"] == "true")
+                {
+                    sw.Stop();
+                    Label1.ForeColor = Color.Red;
+
+                }
+            } 
         }
 
 
         protected void endSudoku(object sender, EventArgs e)
         {
+            if (SessionManager.IsUserAuthenticated(Context) && Request.QueryString["tournament"] != "true") {
+                SessionManager.reviewSudoku(Context, long.Parse(Request.QueryString["id"]),int.Parse (DbdReview.SelectedValue));
+            }
             Response.Redirect(Response.ApplyAppPathModifier("~/Pages/Home.aspx"));
 
         }

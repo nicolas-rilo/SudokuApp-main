@@ -132,4 +132,7 @@
   <data name="lblRules.Text" xml:space="preserve">
     <value>Regras: </value>
   </data>
+  <data name="lclReview.Text" xml:space="preserve">
+    <value>Reseña</value>
+  </data>
 </root>

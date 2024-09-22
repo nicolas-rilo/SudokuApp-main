@@ -76,7 +76,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
         public UserDetails FindUserDetails(long usrId)
         {
             Users userFind = UsersDao.Find(usrId);
-            UserDetails userDetails = new UserDetails (userFind.firstName, userFind.lastName, userFind.email, userFind.idiom, userFind.country);
+            UserDetails userDetails = new UserDetails (userFind.userName, userFind.firstName, userFind.lastName, userFind.email, userFind.idiom, userFind.country);
             return userDetails;
         }
 
@@ -84,6 +84,7 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UserService
         {
             Users user = UsersDao.Find(usrId);
 
+            user.userName = userDetails.userName;
             user.firstName = userDetails.firstName;
             user.lastName = userDetails.lastName;
             user.email = userDetails.Email;

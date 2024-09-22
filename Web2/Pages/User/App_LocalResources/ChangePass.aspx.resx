@@ -117,46 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnArrow.Text" xml:space="preserve">
-    <value>Arrow</value>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="btnCustom.Text" xml:space="preserve">
-    <value>Custom</value>
+  <data name="lclPassError.Text" xml:space="preserve">
+    <value>Incorrect Password</value>
   </data>
-  <data name="btnKiller.Text" xml:space="preserve">
-    <value>Killer</value>
+  <data name="lclPassword.Text" xml:space="preserve">
+    <value>Old Password</value>
   </data>
-  <data name="btnNormal.Text" xml:space="preserve">
-    <value>Normal</value>
-  </data>
-  <data name="btnSearch.Text" xml:space="preserve">
-    <value>Buscar</value>
-  </data>
-  <data name="btnSelect.Text" xml:space="preserve">
-    <value>Xogar</value>
-  </data>
-  <data name="btnThermal.Text" xml:space="preserve">
-    <value>Thermal</value>
-  </data>
-  <data name="lblDificulty.Text" xml:space="preserve">
-    <value>Dificultade</value>
-  </data>
-  <data name="lblName.Text" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="lblReview.Text" xml:space="preserve">
-    <value>Nota</value>
-  </data>
-  <data name="lblRules.Text" xml:space="preserve">
-    <value>Regras</value>
-  </data>
-  <data name="lclDificulty.Text" xml:space="preserve">
-    <value>Dificultade</value>
-  </data>
-  <data name="lclFindSudoku.Text" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="lclSudokuType.Text" xml:space="preserve">
-    <value>Tipo</value>
+  <data name="lclRetypePassword.Text" xml:space="preserve">
+    <value>New Password</value>
   </data>
 </root>

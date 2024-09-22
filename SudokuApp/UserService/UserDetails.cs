@@ -12,6 +12,8 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UsuarioService
     [Serializable()]
     public class UserDetails
     {
+        public String userName { get; private set; }
+
 
         public String firstName { get; private set; }
 
@@ -23,18 +25,15 @@ namespace Es.Udc.DotNet.SudokuApp.Model.UsuarioService
 
         public String country { get; private set; }
 
-
-        public UserDetails(string firstName, string lastName, string email, string idiom, string country)
+        public UserDetails(string userName, string firstName, string lastName, string email, string idiom, string country)
         {
+            this.userName = userName;
             this.firstName = firstName;
             this.lastName = lastName;
-            this.Email = email;
+            Email = email;
             this.idiom = idiom;
             this.country = country;
         }
-
-
-
 
         public override bool Equals(object obj)
         {

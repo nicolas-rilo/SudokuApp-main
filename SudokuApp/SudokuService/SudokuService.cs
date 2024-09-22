@@ -48,8 +48,12 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
 
 
         private SudokuDto sudokuToSudokudto (Sudoku sudoku) {
-            return new SudokuDto(sudoku.sudokuId,sudoku.usrId,sudoku.name,sudoku.rules,sudoku.dificulty, (bool)sudoku.normal, (bool)sudoku.killer,
+            SudokuDto sudokuDto = new SudokuDto(sudoku.sudokuId, sudoku.usrId, sudoku.name, sudoku.rules, sudoku.dificulty, (bool)sudoku.normal, (bool)sudoku.killer,
                 (bool)sudoku.thermal, (bool)sudoku.arrow, (bool)sudoku.custom, cellDao.getSudokuCellPuzzle(sudoku), cellDao.getSudokuCellSolution(sudoku), cellDao.getSudokuCellImage(sudoku));
+
+            sudokuDto.review = getAverageReview(sudoku.sudokuId);
+
+            return sudokuDto;
         }
 
         public List<SudokuDto> findByUser(long userId, int start, int size)
@@ -132,12 +136,18 @@ namespace Es.Udc.DotNet.SudokuApp.Model.SudokuService
         {
             List<Review> reviews = reviewDao.getSudokuReviews(sudokuDao.Find(sudokuId));
             int total = 0;
+            double result;
 
             foreach (Review a in reviews) {
                 total += (int) a.review_value;    
             }
-
-            double result = total / reviews.Count();
+            if (reviews.Count() != 0)
+            {
+                result = total / reviews.Count();
+            }
+            else {
+                result = 0;
+            }
             return (int) Math.Round(result);
 
         }

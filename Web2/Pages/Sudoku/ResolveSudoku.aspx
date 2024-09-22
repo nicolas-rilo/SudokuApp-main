@@ -31,9 +31,30 @@
             <span class="entry">
                 <asp:Localize ID="lblSudokuExp" runat="server" meta:resourcekey="lblSudokuExp" />
             </span>
+            <div class="field">
+                <span class="label">
+                    <asp:Localize ID="lclReview" runat="server" meta:resourcekey="lclReview" /></span><span class="entry">
+
+                    <asp:DropDownList ID="DbdReview" runat="server">
+
+                        <asp:ListItem Text="0" Value="0"></asp:ListItem>
+
+                        <asp:ListItem Text="1" Value="1"></asp:ListItem>
+
+                        <asp:ListItem Text="2" Value="2"></asp:ListItem>
+
+                        <asp:ListItem Text="3" Value="3"></asp:ListItem>
+
+                        <asp:ListItem Text="4" Value="4"></asp:ListItem>
+
+                        <asp:ListItem Text="5" Value="5"></asp:ListItem>
+
+                    </asp:DropDownList>
+            </div>
             <div class="button">
                 <asp:Button ID="btnAccept" runat="server" meta:resourcekey="btnAccept" OnClick="endSudoku"  />
             </div>
+
 
         </form>
     </div>

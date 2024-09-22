@@ -35,18 +35,11 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages
                 dificulty = null;
             }
             List<SudokuDto> sudokuDtos;
-            if (DdType.SelectedValue == "Normal")
-            {
-                sudokuDtos = SessionManager.findByFilter(Context, txtSudoku.Text, dificulty, true ,false, false, false, false, 0, 8);
-            }
-            else if (DdType.SelectedValue == "Custom")
-            {
-                sudokuDtos = SessionManager.findByFilter(Context, txtSudoku.Text, dificulty, false, false, false, false, true, 0, 8);
 
-            }
-            else {
-                sudokuDtos = SessionManager.findByFilter(Context, txtSudoku.Text, dificulty, false, false, false, false, false, 0, 8);
-            }
+
+            sudokuDtos = SessionManager.findByFilter(Context, txtSudoku.Text, dificulty, DdType.SelectedValue == "Normal", DdType.SelectedValue == "Killer"
+                , DdType.SelectedValue == "Thermal", DdType.SelectedValue == "Arrow", DdType.SelectedValue == "Custom",0,8);
+
 
             Repeater2.DataSource = sudokuDtos;
             Repeater2.DataBind();
@@ -60,6 +53,36 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages
             Repeater1.DataSource = sudokuDtos;
             Repeater1.DataBind();
         }
+
+
+
+        protected void resultThermal(object sender, EventArgs e)
+        {
+            List<SudokuDto> sudokuDtos = SessionManager.findByFilter(Context, null, null, false, false, true, false, false,0,8);
+
+
+            Repeater1.DataSource = sudokuDtos;
+            Repeater1.DataBind();
+        }
+        protected void resultArrow(object sender, EventArgs e)
+        {
+            List<SudokuDto> sudokuDtos = SessionManager.findByFilter(Context, null, null, false, false, false, true, false,0,8);
+
+
+            Repeater1.DataSource = sudokuDtos;
+            Repeater1.DataBind();
+        }
+        protected void resultKiller(object sender, EventArgs e)
+        {
+            List<SudokuDto> sudokuDtos = SessionManager.findByFilter(Context, null, null, false, true, false, false, false,0,8);
+
+
+            Repeater1.DataSource = sudokuDtos;
+            Repeater1.DataBind();
+        }
+
+
+
         protected void resultCustom(object sender, EventArgs e)
         {
             List<SudokuDto> sudokuDtos = SessionManager.findByFilter(Context, null, null,false, false, false, false, true, 0, 8);
@@ -68,6 +91,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages
             Repeater1.DataSource = sudokuDtos;
             Repeater1.DataBind();
         }
+
 
     }
 
