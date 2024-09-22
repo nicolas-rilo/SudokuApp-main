@@ -80,12 +80,15 @@
 
             <asp:Table id="ThermoPath" CssClass="sudoku" Runat="server"/>
 
-            <asp:Table id="ArrowPath" CssClass="sudoku" Runat="server"/>
-
-
             <div class="button">
                 <asp:Button ID="btnAddPath" runat="server" meta:resourcekey="btnAddPath" OnClick="AddPath" />
             </div>
+            <div class="button">
+                <asp:Button ID="btnCreate" runat="server" meta:resourcekey="btnCreate" OnClick="CreateThermo" />
+            </div>
+
+
+            <asp:Table id="ArrowPath" CssClass="sudoku" Runat="server"/>
 
             <div class="button">
                 <asp:Button ID="btnAddArrow" runat="server" meta:resourcekey="btnAddArrow" OnClick="AddArrow" />
@@ -94,9 +97,20 @@
                 <asp:Button ID="btnCreate2" runat="server" meta:resourcekey="btnCreate" OnClick="CreateArrow" />
             </div>
 
+            <asp:Table id="KillerPath" CssClass="sudoku" Runat="server"/>
             <div class="button">
-                <asp:Button ID="btnCreate" runat="server" meta:resourcekey="btnCreate" OnClick="CreateThermo" />
+                <asp:Button ID="btnAddKiller" runat="server" meta:resourcekey="btnAddKiller" OnClick="AddKiller" />
             </div>
+            <div class="button">
+                <asp:Button ID="btnCreate3" runat="server" meta:resourcekey="btnCreate" OnClick="CreateKiller" />
+            </div>
+
+            
+
+            
+            
+
+            
 
             <div class="button">
                 <asp:Button ID="btnUpload" runat="server" meta:resourcekey="btnUpload" OnClick="uploadSudoku" />

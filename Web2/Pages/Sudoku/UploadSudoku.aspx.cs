@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -116,15 +117,48 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
 
             }
 
+            for (int i = 0; i < 9; i++)
+            {
+                TableRow r = new TableRow();
+                for (int j = 0; j < 9; j++)
+                {
+                    TableCell c = new TableCell();
+                    DropDownList dropDown = new DropDownList();
+
+                    DataTable objdt = new DataTable();
+                    objdt = GetDataArrow();
+                    dropDown.DataSource = objdt;
+                    dropDown.DataTextField = "Figure";
+                    dropDown.DataValueField = "Id";
+                    dropDown.DataBind();
+
+
+                    dropDown.CssClass = "cell";
+                    dropDown.ID = "checkT3-" + i + "-" + j;
+
+                    c.Controls.Add(dropDown);
+                    r.Controls.Add(c);
+
+                }
+                KillerPath.Rows.Add(r);
+
+            }
+
             lclSolution.Visible = false;
             btnCreate.Visible = false;
             btnCreate2.Visible = false;
+            btnCreate3.Visible = false;
             btnSwitch2.Visible = false;
             Table2.Visible = false;
             ThermoPath.Visible = false;
             ArrowPath.Visible = false;
+            KillerPath.Visible = false;
+
+
             btnAddPath.Visible = true;
             btnAddArrow.Visible = true;
+            btnAddKiller.Visible = true;
+
 
         }
 
@@ -400,13 +434,30 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                         default: break;
 
                     }
-                    if (image != null){
+                    if (image != null)
+                    {
 
                         textBox = (TextBox)Table1.FindControl("cell" + "-" + i + "-" + j);
                         textBox.CssClass = image;
                         textBox1 = (TextBox)Table2.FindControl("cellT2" + "-" + i + "-" + j);
                         textBox1.CssClass = image;
+                        DropDownList dropDownOtro = (DropDownList)ThermoPath.FindControl("checkT2-" + i + "-" + j);
+                        dropDownOtro.Enabled = false;
+                        dropDownOtro.BackColor = Color.Gray;
+
                         image = null;
+                    }
+                    else {
+                        textBox = (TextBox)Table1.FindControl("cell" + "-" + i + "-" + j);
+                        if(dropDown.Enabled)
+                            textBox.CssClass = "cell";
+                        textBox1 = (TextBox)Table2.FindControl("cellT2" + "-" + i + "-" + j);
+                        if (dropDown.Enabled)
+                            textBox1.CssClass = "cell";
+                        DropDownList dropDownOtro = (DropDownList)ThermoPath.FindControl("checkT2-" + i + "-" + j);
+                        dropDownOtro.Enabled = true;
+                        dropDownOtro.BackColor = Color.White;
+
                     }
                 }
             }
@@ -466,7 +517,23 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                         textBox.CssClass = image;
                         textBox1 = (TextBox)Table2.FindControl("cellT2" + "-" + i + "-" + j);
                         textBox1.CssClass = image;
+                        DropDownList dropDownOtro = (DropDownList)ThermoPath.FindControl("check-" + i + "-" + j);
+                        dropDownOtro.Enabled = false;
+                        dropDownOtro.BackColor = Color.Gray;
                         image = null;
+                    }
+                    else
+                    {
+                        textBox = (TextBox)Table1.FindControl("cell" + "-" + i + "-" + j);
+                        if (dropDown.Enabled)
+                            textBox.CssClass = "cell";
+                        textBox1 = (TextBox)Table2.FindControl("cellT2" + "-" + i + "-" + j);
+                        if (dropDown.Enabled)
+                            textBox1.CssClass = "cell";
+                        DropDownList dropDownOtro = (DropDownList)ThermoPath.FindControl("check-" + i + "-" + j);
+                        dropDownOtro.Enabled = true;
+                        dropDownOtro.BackColor = Color.White;
+
                     }
                 }
             }
@@ -480,6 +547,19 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             btnCreate2.Visible = true;
 
         }
-        
+
+        protected void AddKiller(object sender, EventArgs e)
+        {
+            KillerPath.Visible = true;
+            btnAddKiller.Visible = false;
+            btnCreate3.Visible = true;
+
+        }
+        protected void CreateKiller(object sender, EventArgs e)
+        {
+
+
+        }
+
     }
 }

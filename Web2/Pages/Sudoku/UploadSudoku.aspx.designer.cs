@@ -186,15 +186,6 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         protected global::System.Web.UI.WebControls.Table ThermoPath;
 
         /// <summary>
-        /// Control ArrowPath.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table ArrowPath;
-
-        /// <summary>
         /// Control btnAddPath.
         /// </summary>
         /// <remarks>
@@ -202,6 +193,24 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddPath;
+
+        /// <summary>
+        /// Control btnCreate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreate;
+
+        /// <summary>
+        /// Control ArrowPath.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table ArrowPath;
 
         /// <summary>
         /// Control btnAddArrow.
@@ -222,13 +231,31 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         protected global::System.Web.UI.WebControls.Button btnCreate2;
 
         /// <summary>
-        /// Control btnCreate.
+        /// Control KillerPath.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreate;
+        protected global::System.Web.UI.WebControls.Table KillerPath;
+
+        /// <summary>
+        /// Control btnAddKiller.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddKiller;
+
+        /// <summary>
+        /// Control btnCreate3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreate3;
 
         /// <summary>
         /// Control btnUpload.

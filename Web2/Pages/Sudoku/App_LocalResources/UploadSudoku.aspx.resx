@@ -120,6 +120,9 @@
   <data name="btnAddArrow.Text" xml:space="preserve">
     <value>Arrow</value>
   </data>
+  <data name="btnAddKiller.Text" xml:space="preserve">
+    <value>Killer</value>
+  </data>
   <data name="btnAddPath.Text" xml:space="preserve">
     <value>Thermo</value>
   </data>
