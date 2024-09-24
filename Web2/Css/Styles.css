@@ -62,6 +62,19 @@
     transition: all 0.3s ease-in-out;
 
 }
+
+.cell2 {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid #979191;
+    transition: all 0.3s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
 .sudoku {
     border-collapse: collapse;
     border: 5px solid #000;   
@@ -574,3 +587,221 @@ input {
     #profile input[type="button"]:hover {
         background-color: #888888;
     }
+
+
+#Selector {
+    width: 800px;
+}
+#dificultis {
+    display: flex;
+    justify-content: space-between; 
+    height: 90vh; 
+    margin-top: 10px;
+}
+
+    #dificultis > div {
+        flex: 1;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 10%; 
+    }
+
+
+
+#Selector button,
+#Selector input[type="submit"],
+#Selector input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 20px 100px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+    #Selector button:hover,
+    #Selector input[type="submit"]:hover,
+    #Selector input[type="button"]:hover {
+        background-color: #888888;
+    }
+
+
+#ranking {
+    width: 800px;
+}
+#ranking table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 10px;
+}
+
+#ranking table td {
+    padding: 8px;
+    text-align: left;
+}
+
+#ranking table th {
+    background-color: #f2f2f2;
+    padding: 8px;
+}
+
+#sudokuCreator {
+    width: 800px;
+}
+
+#sudokuCreator #categories {
+    display: flex; 
+    gap: 15px; 
+    align-items: center
+}
+
+#sudokuCreator #categories .checkbox {
+    display: flex;
+    align-items: center; 
+}
+#paths {
+    display: flex; 
+    gap: 15px; 
+    flex-direction: column;
+}
+#paths {
+    display: flex;
+    align-items: center; 
+}
+
+#sudokuCreator #total {
+    display: flex;
+}
+
+#sudokuCreator #total #sudoku-creation {
+    margin-left: 10px;   
+}
+
+#sudokuCreator .label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#sudokuCreator .field {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#sudokuCreator .entry input[type="text"],
+#sudokuCreator .entry input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#sudokuCreator .entry select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+ #sudoku-creation button,
+#sudoku-creation input[type="submit"],
+ #sudoku-creation input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 20px 100px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+    #sudoku-creation button:hover,
+    #sudoku-creation input[type="submit"]:hover,
+    #sudoku-creation input[type="button"]:hover {
+        background-color: #888888;
+    }
+
+
+#hh button,
+#hh input[type="submit"],
+#hh input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 20px 100px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+    #hh button:hover,
+    #hh input[type="submit"]:hover, 
+    #hh input[type="button"]:hover {
+        background-color: #888888;
+    }
+
+#solve button,
+#solve input[type="submit"],
+#solve input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 20px 100px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+    #solve button:hover,
+    #solve input[type="submit"]:hover,
+    #solve input[type="button"]:hover {
+        background-color: #888888;
+    }
+
+#solve .label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 16px;
+}
+#solve .label2 {
+    display: flex;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+    flex-direction: column;
+    font-size: 30px;
+}
+
+#solve .field {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#solve .entry input[type="text"],
+#solve .entry input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#solve .entry select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}

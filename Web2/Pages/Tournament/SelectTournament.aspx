@@ -2,7 +2,8 @@
     EnableEventValidation="false" CodeBehind="SelectTournament.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Tournament.SelectTournament" meta:resourcekey="Page" UnobtrusiveValidationMode="None"%>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-
+    <div id ="cenetering2">
+    <div id ="home">
     <form runat="server">
         <div class="button">
             <asp:Button ID="btnCrTour" runat="server" meta:resourcekey="btnCrTour" OnClick="createTournament"  />
@@ -41,5 +42,7 @@
 
 
     </form>
+    </div>
+    </div>
 </asp:Content>
 

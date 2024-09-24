@@ -60,6 +60,15 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         protected global::System.Web.UI.Timer tm1;
 
         /// <summary>
+        /// Control lblRules.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lblRules;
+
+        /// <summary>
         /// Control Table1.
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Localize lblExplanation;
-
-        /// <summary>
-        /// Control lblRules.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize lblRules;
 
         /// <summary>
         /// Control lblSudokuExp.

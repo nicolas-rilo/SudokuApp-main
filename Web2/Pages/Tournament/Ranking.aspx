@@ -2,6 +2,8 @@
     EnableEventValidation="false" CodeBehind="Ranking.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Tournament.Ranking" meta:resourcekey="Page" UnobtrusiveValidationMode="None"%>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
+    <div id ="cenetering2">
+    <div id="ranking">
     <form runat="server">
         <asp:Repeater id="Repeater1" runat="server">
             <HeaderTemplate>
@@ -65,4 +67,6 @@
              
         </asp:Repeater>
     </form>
+    </div>
+    </div>
 </asp:Content>

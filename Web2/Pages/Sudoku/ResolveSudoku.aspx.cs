@@ -214,6 +214,8 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             if (count == 81) {
                 lblExplanation.Visible = true;
                 btnAccept.Visible = true;
+                btnSolve.Visible = false;
+
                 if (SessionManager.IsUserAuthenticated(Context) && Request.QueryString["tournament"] != "true") {
                     lclReview.Visible = true;
                     DbdReview.Visible = true;

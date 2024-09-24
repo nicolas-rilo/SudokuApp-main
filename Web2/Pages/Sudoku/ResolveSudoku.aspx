@@ -2,7 +2,7 @@
     EnableEventValidation="false"  CodeBehind="ResolveSudoku.aspx.cs" Inherits="Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku.ResolveSudoku" meta:resourcekey="Page" UnobtrusiveValidationMode="None"%>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
-
+    <div id="solve">
     <div runat="server" id="prueba" class="prueba">
         <form runat="server">
             <asp:scriptmanager ID="Scriptmanager1" runat="server"></asp:scriptmanager>
@@ -15,20 +15,23 @@
                 <asp:AsyncPostBackTrigger ControlID="tm1" EventName="Tick" />
               </Triggers>
             </asp:UpdatePanel>
+            <span class="label">
+                <asp:Localize ID="lblRules" runat="server" meta:resourcekey="lblRules" />
+            </span>
 
             <asp:Table id="Table1" CssClass="sudoku" Runat="server"/>
             <asp:Table id="Table2" CssClass="sudoku" Runat="server"/>
 
+
+
             <div class="button">
                 <asp:Button ID="btnSolve" runat="server" meta:resourcekey="btnSolve" OnClick="validateSolution"  />
             </div>
-            <span class="entry">
+            <span class="label2">
                 <asp:Localize ID="lblExplanation" runat="server" meta:resourcekey="lblExplanation" />
             </span>
-            <span class="entry">
-                <asp:Localize ID="lblRules" runat="server" meta:resourcekey="lblRules" />
-            </span>
-            <span class="entry">
+
+            <span class="label2">
                 <asp:Localize ID="lblSudokuExp" runat="server" meta:resourcekey="lblSudokuExp" />
             </span>
             <div class="field">
@@ -57,6 +60,7 @@
 
 
         </form>
+    </div>
     </div>
 </asp:Content>
 

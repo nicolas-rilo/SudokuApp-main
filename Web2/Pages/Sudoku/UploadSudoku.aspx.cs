@@ -79,7 +79,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                     dropDown.DataBind();
   
 
-                    dropDown.CssClass = "cell";
+                    dropDown.CssClass = "cell2";
                     dropDown.ID = "check-" + i + "-" + j;
 
                     c.Controls.Add(dropDown);
@@ -106,7 +106,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                     dropDown.DataBind();
 
 
-                    dropDown.CssClass = "cell";
+                    dropDown.CssClass = "cell2";
                     dropDown.ID = "checkT2-" + i + "-" + j;
 
                     c.Controls.Add(dropDown);
@@ -133,7 +133,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
                     dropDown.DataBind();
 
 
-                    dropDown.CssClass = "cell";
+                    dropDown.CssClass = "cell2";
                     dropDown.ID = "checkT3-" + i + "-" + j;
 
                     c.Controls.Add(dropDown);
@@ -511,6 +511,9 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             btnAddPath.Visible = false;
             btnCreate.Visible = true;
 
+            btnAddKiller.Visible = false;
+            btnAddArrow.Visible = false;
+
         }
 
         protected void CreateArrow(object sender, EventArgs e)
@@ -587,6 +590,9 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             btnAddArrow.Visible = false;
             btnCreate2.Visible = true;
 
+            btnAddKiller.Visible = false;
+            btnAddPath.Visible = false;
+
         }
 
         protected void AddKiller(object sender, EventArgs e)
@@ -594,6 +600,9 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
             KillerPath.Visible = true;
             btnAddKiller.Visible = false;
             btnCreate3.Visible = true;
+
+            btnAddArrow.Visible = false;
+            btnAddPath.Visible = false;
 
         }
         protected void CreateKiller(object sender, EventArgs e)
