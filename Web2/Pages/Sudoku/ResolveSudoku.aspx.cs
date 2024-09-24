@@ -21,7 +21,7 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.Sudoku
         {
             lblExplanation.Visible = false;
             btnAccept.Visible = false;
-            Table2.Visible = true;
+            Table2.Visible = false;
             lblSudokuExp.Visible = false;
             lclReview.Visible = false;
             DbdReview.Visible = false;

@@ -24,6 +24,15 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
         protected global::System.Web.UI.HtmlControls.HtmlForm ProfileForm;
 
         /// <summary>
+        /// Control lclUsername.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclUsername;
+
+        /// <summary>
         /// Control lblUsername.
         /// </summary>
         /// <remarks>
@@ -33,6 +42,15 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
         protected global::System.Web.UI.WebControls.Label lblUsername;
 
         /// <summary>
+        /// Control lclFirstName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclFirstName;
+
+        /// <summary>
         /// Control lblFirstName.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFirstName;
+
+        /// <summary>
+        /// Control lclLastName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclLastName;
 
         /// <summary>
         /// Control lblLastName.

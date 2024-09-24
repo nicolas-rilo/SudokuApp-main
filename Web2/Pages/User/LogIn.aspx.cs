@@ -45,5 +45,12 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
                 }
             }
         }
+
+
+
+        protected void switchRegister(object sender, EventArgs e) {
+            Response.Redirect(Response.ApplyAppPathModifier("~/Pages/User/Register.aspx"));
+        }
+
     }
 }

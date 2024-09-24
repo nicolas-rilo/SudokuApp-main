@@ -15,15 +15,6 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
     {
 
         /// <summary>
-        /// Control lnkRegister.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkRegister;
-
-        /// <summary>
         /// Control AuthenticationForm.
         /// </summary>
         /// <remarks>
@@ -121,5 +112,14 @@ namespace Es.Udc.DotNet.SudokuApp.Web.Pages.User
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
+
+        /// <summary>
+        /// Control btnRegister.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }

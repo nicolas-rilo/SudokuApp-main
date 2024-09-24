@@ -29,6 +29,7 @@
                             <asp:HyperLink  ID="lnkTournament" runat="server" NavigateUrl="~/Pages/Tournament/SelectTournament.aspx"
                              meta:resourcekey="lnkTournament"></asp:HyperLink>
 
+                    <div id="right-links">
                             <asp:HyperLink style="float:right" ID="lnkAuthentication" runat="server" NavigateUrl="~/Pages/User/LogIn.aspx"
                              meta:resourcekey="lnkAuthentication"></asp:HyperLink>
 
@@ -40,6 +41,7 @@
 
                             <asp:HyperLink style="float:right" ID="lnkProfile" runat="server" NavigateUrl="~/Pages/User/Profile.aspx"
                              meta:resourcekey="lnkProfile"></asp:HyperLink>
+                    </div>
 
                 </asp:ContentPlaceHolder>
         </div>

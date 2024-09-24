@@ -129,6 +129,15 @@
   <data name="lblRules.Text" xml:space="preserve">
     <value>Regras</value>
   </data>
+  <data name="lclFirstName.Text" xml:space="preserve">
+    <value>Nome: </value>
+  </data>
+  <data name="lclLastName.Text" xml:space="preserve">
+    <value>Apelidos: </value>
+  </data>
+  <data name="lclUsername.Text" xml:space="preserve">
+    <value>Nome de usuario: </value>
+  </data>
   <data name="lnkDeleteAcount.Text" xml:space="preserve">
     <value>Borrar conta</value>
   </data>

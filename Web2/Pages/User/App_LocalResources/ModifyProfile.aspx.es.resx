@@ -123,11 +123,17 @@
   <data name="lblLoginError.Text" xml:space="preserve">
     <value>Usuario ya existente</value>
   </data>
+  <data name="lclCountry.Text" xml:space="preserve">
+    <value>País</value>
+  </data>
   <data name="lclEmail.Text" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="lclFirstName.Text" xml:space="preserve">
     <value>Nombre</value>
+  </data>
+  <data name="lclLanguage.Text" xml:space="preserve">
+    <value>Idioma</value>
   </data>
   <data name="lclLastName.Text" xml:space="preserve">
     <value>Apellidos</value>

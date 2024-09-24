@@ -1,33 +1,55 @@
-﻿body {
+﻿body, html {
+    height: 100%;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
 #menuLinks {
+    background-color: black; 
     overflow: hidden;
-    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
 }
 
+    
     #menuLinks a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
+        color: white; 
         text-decoration: none;
-        font-size: 17px;
+        padding: 14px 20px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
     }
 
-        #menuLinks a:hover {
-            background-color: #111;
-        }
+#right-links {
+    margin-left: auto; 
+    display: flex;
+}
 
-        .topnav a.active {
-            background-color: #04AA6D;
-            color: white;
-        }
+
+#menuLinks a:hover {
+    background-color: #575757;
+}
+
+#cenetering {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+#cenetering2 {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 
 .prueba {
-    margin-top: 20px; 
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -287,3 +309,268 @@ input {
     border: 1px solid #979191;
     transition: all 0.3s ease-in-out;
 }
+
+#user-stuff .entry input[type="text"],
+#user-stuff .entry input[type="password"] {
+    width: 100%;
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+#user-stuff {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    display: flex;
+    justify-content: center;
+}
+
+#user-stuff  .label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+#user-stuff .field {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#user-stuff .checkbox {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+#user-stuff .button {
+    text-align: center;
+    width: 100%;
+}
+
+#user-stuff .entry select {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px; 
+}
+
+
+#user-stuff button,
+#user-stuff input[type="submit"],
+#user-stuff input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; 
+}
+
+    #user-stuff button:hover,
+    #user-stuff input[type="submit"]:hover,
+    #user-stuff input[type="button"]:hover {
+        background-color: #888888;
+    }
+
+
+
+
+
+#home {
+    width: 800px;
+}
+#home .label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#home .field {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#home .button {
+    text-align: center;
+    width: 100%;
+}
+
+#home .entry select {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 14px; 
+}
+
+#home .entry input[type="text"],
+#home .entry input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#home #types {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#home #parameters {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
+#home #parameters .entry input[type="text"],
+#home #parameters .entry input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#home #parameters .entry select {
+    width: 95%; 
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 14px;
+}
+#home table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 10px;
+}
+#home table td {
+    padding: 8px;
+    text-align: left;
+}
+#home table th {
+    background-color: #f2f2f2;
+    padding: 8px;
+}
+
+#home #types button,
+#home #types input[type="submit"],
+#home #types input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    margin: 0 0px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 95%;
+}
+
+
+#home button,
+#home input[type="submit"],
+#home input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; 
+}
+
+    #home button:hover,
+    #home input[type="submit"]:hover,
+    #home input[type="button"]:hover {
+        background-color: #888888;
+    }
+
+
+
+#profile {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    width: 800px;
+}
+#FirstLine {
+    overflow: hidden;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+    #FirstLine a {
+        text-decoration: none;
+        padding: 14px 20px;
+        display: inline-block;
+        font-size: 16px;
+    }
+    #FirstLine .Username .FirstName .LastName {
+        text-decoration: none;
+        padding: 14px 20px;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+#profile #data > div {
+    display: flex;
+    flex-direction: row;
+}
+#profile #links {
+    margin-left: auto;
+    display: flex;
+}
+#profile #textUsername, #textFirstName, #textLastName {
+    margin-left: 10px;
+    font-weight: bold;
+}
+#profile table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 10px;
+}
+
+#profile table td {
+    padding: 8px;
+    text-align: left;
+}
+
+#profile table th {
+    background-color: #f2f2f2; 
+    padding: 8px;
+}
+
+#profile button,
+#profile input[type="submit"],
+#profile input[type="button"] {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; 
+}
+
+    #profile button:hover,
+    #profile input[type="submit"]:hover,
+    #profile input[type="button"]:hover {
+        background-color: #888888;
+    }
