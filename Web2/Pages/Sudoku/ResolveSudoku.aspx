@@ -18,6 +18,9 @@
             <span class="label">
                 <asp:Localize ID="lblRules" runat="server" meta:resourcekey="lblRules" />
             </span>
+                        <span class="label1">
+                <asp:Localize ID="lblSudokuExp" runat="server" meta:resourcekey="lblSudokuExp" />
+            </span>
 
             <asp:Table id="Table1" CssClass="sudoku" Runat="server"/>
             <asp:Table id="Table2" CssClass="sudoku" Runat="server"/>
@@ -31,9 +34,7 @@
                 <asp:Localize ID="lblExplanation" runat="server" meta:resourcekey="lblExplanation" />
             </span>
 
-            <span class="label2">
-                <asp:Localize ID="lblSudokuExp" runat="server" meta:resourcekey="lblSudokuExp" />
-            </span>
+
             <div class="field">
                 <span class="label">
                     <asp:Localize ID="lclReview" runat="server" meta:resourcekey="lclReview" /></span><span class="entry">
